@@ -1,0 +1,81 @@
+@port = 3000
+@host = http://localhost:{{port}}
+
+#################### CATEGORIES #####################
+
+GET {{host}}/categories
+
+###
+POST {{host}}/categories/new
+
+###
+PUT {{host}}/categories/update/:categoryId
+
+###
+DELETE {{host}}/categories/:categoryId
+
+
+#################### COMMENTS #####################
+
+GET {{host}}/comments
+
+###
+POST {{host}}/comments/new
+
+###
+PUT {{host}}/comments/update/:commentId
+
+###
+DELETE {{host}}/comments/:commentId
+
+#################### FAVORITES #####################
+
+GET {{host}}/favorites
+
+###
+POST {{host}}/favorites/new
+
+###
+PUT {{host}}/favorites/update/:favoriteId
+
+###
+DELETE {{host}}/favorites/:favoriteId
+
+#################### ORDERS #####################
+
+GET {{host}}/orders
+
+###
+POST {{host}}/orders/new
+
+###
+PUT {{host}}/orders/update/:orderId
+
+###
+DELETE {{host}}/orders/:orderId
+
+#################### PRODUCTS #####################
+
+GET {{host}}/products
+
+###
+POST {{host}}/products/new
+
+###
+PUT {{host}}/products/update/:productId
+
+###
+DELETE {{host}}/products/:productId
+
+#################### USERS #####################
+
+GET {{host}}/users
+
+###
+POST {{host}}/users/new
+
+###
+PUT {{host}}/users/update/:userId
+
+###
+DELETE {{host}}/users/:userId
