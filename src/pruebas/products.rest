@@ -8,14 +8,14 @@
 GET {{host}}/api/products
 
 ###
-GET {{host}}/api/products/3
+GET {{host}}/api/products/11
 
 ###
 POST {{host}}/api/products/new
 Content-Type: application/json
 
 {
-    "title":"Gorra blanca", 
+    "title": "Gorra blanca", 
     "description": "Gorra blanca de algodón", 
     "price": "37.90", 
     "image": "http://ecommerce.com/5932659.jpg", 
@@ -29,7 +29,7 @@ PUT {{host}}/api/products/update/12
 Content-Type: application/json
 
 {
-    "title":"Gorra gris", 
+    "title": "Gorra gris", 
     "description": "Gorra gris de algodón", 
     "price": "37.90", 
     "image": "http://ecommerce.com/5932659.jpg", 
@@ -39,6 +39,6 @@ Content-Type: application/json
 
 
 ###
-DELETE {{host}}/api/products/12
+DELETE {{host}}/api/products/11
 
 
