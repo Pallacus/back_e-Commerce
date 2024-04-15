@@ -10,13 +10,9 @@ router.post("/new", (req, res) => {
   res.end("Creo un nuevo pedido");
 });
 
-/**
- * TODO: qué utilizamos para la actualización?
- */
-
-//PUT /orders/update/ORDERID O CODE ???
-router.put("/update/:orderId", (req, res) => {
-  res.end("Actualizo un un pedido por ID");
+//PUT /orders/update/CODE O CODE ???
+router.put("/update/:orderCode", (req, res) => {
+  res.end("Actualizo un un pedido por código");
 });
 
 //DELETE /orders/FAVORITEID
