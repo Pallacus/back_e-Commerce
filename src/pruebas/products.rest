@@ -25,7 +25,7 @@ Content-Type: application/json
 
 
 ###
-PUT {{host}}/api/products/update/12
+PUT {{host}}/api/products/update/2
 Content-Type: application/json
 
 {
@@ -39,6 +39,6 @@ Content-Type: application/json
 
 
 ###
-DELETE {{host}}/api/products/11
+DELETE {{host}}/api/products/2
 
 

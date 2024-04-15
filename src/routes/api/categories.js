@@ -1,23 +1,54 @@
+const { getAllCategories, insertNewCategory, getCategoryById, updateCategory, deleteCategory } = require('../../models/categories.model');
+
 const router = require("express").Router();
 
 // GET /categories
-router.get("/", (req, res) => {
-  res.end("Recupero todas las categorías");
+router.get("/", async (req, res) => {
+  try {
+    const [categories] = await getAllCategories();
+    res.json(categories);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
 });
 
 // POST /categories/new
-router.post("/new", (req, res) => {
-  res.end("Creo una nueva categoría");
+router.post("/new", async (req, res) => {
+  const { title } = req.body;
+  try {
+    const [result] = await insertNewCategory(title);
+    const [categories] = await getCategoryById(result.insertId);
+    res.json(categories[0]);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
 });
 
 //PUT /categories/update/CATEGORYID
-router.put("/update/:categoryId", (req, res) => {
-  res.end("Actualizo una categoría por ID");
+router.put("/update/:categoryId", async (req, res) => {
+  const { params: { categoryId }, body: { title } } = req;
+  try {
+    await updateCategory(categoryId, title);
+    const [categories] = await getCategoryById(categoryId);
+    res.json(categories[0]);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
 });
 
 //DELETE /categories/CATEGORYID
-router.delete("/:categoryId", (req, res) => {
-  res.end("Borro una categoría por ID");
+router.delete("/:categoryId", async (req, res) => {
+  const { categoryId } = req.params;
+  try {
+    const [categories] = await getCategoryById(categoryId);
+    if (categories.length === 0) {
+      return res.json({ fatal: `Esta categoría no existe.` });
+    }
+    await deleteCategory(categoryId);
+    res.json(categories[0]);
+  } catch (error) {
+    res.json({ fartal: error.message });
+  }
 });
 
 module.exports = router;

@@ -1,0 +1,28 @@
+@port = 3000
+@host = http://localhost:{{port}}
+
+
+#################### CATEGORIES #####################
+
+
+GET {{host}}/api/categories
+
+###
+POST {{host}}/api/categories/new
+Content-Type: application/json
+
+{
+    "title": "baño"
+}
+
+###
+PUT {{host}}/api/categories/update/5
+Content-Type: application/json
+
+{
+    "title": "ChOni"
+}
+
+###
+DELETE {{host}}/api/categories/4
+

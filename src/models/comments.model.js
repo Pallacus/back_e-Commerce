@@ -3,7 +3,7 @@ const getAllComments = () => {
 }
 const insertNewComment = ({ text, users_id, products_id }) => {
     return db.query(`
-    INSERT INTO comments(text, users_id, products_id) VALUES(?, ?, ?);`,
+    INSERT INTO e_commerce.comments(text, users_id, products_id) VALUES(?, ?, ?);`,
         [text, users_id, products_id]);
 }
 const getCommentById = (commentId) => {
@@ -24,4 +24,5 @@ DELETE FROM e_commerce.comments
 WHERE comments.id = ?`,
         [commentId]);
 }
+
 module.exports = { getAllComments, insertNewComment, getCommentById, updateComment, deleteComment };

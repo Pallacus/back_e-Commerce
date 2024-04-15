@@ -9,7 +9,7 @@ const getProductById = (productId) => {
 
 const insertNewProduct = ({ title, description, price, image, featured, categories_id }) => {
     return db.query(`
-    INSERT INTO products(title, description, price, image, featured, categories_id)
+    INSERT INTO e_commerce.products(title, description, price, image, featured, categories_id)
     VALUES(?, ?, ?, ?, ?, ?);`,
         [title, description, price, image, featured, categories_id]
     );
@@ -17,7 +17,7 @@ const insertNewProduct = ({ title, description, price, image, featured, categori
 
 const updateProduct = (productId, { title, description, price, image, featured, categories_id }) => {
     return db.query(`
-    UPDATE products 
+    UPDATE e_commerce.products 
     SET title = ?, description = ?, price = ?, image = ?, featured = ?, categories_id = ?
     WHERE id = ?;`,
         [title, description, price, image, featured, categories_id, productId]);
@@ -25,7 +25,7 @@ const updateProduct = (productId, { title, description, price, image, featured, 
 
 const deleteProduct = (productId) => {
     return db.query(`
-    DELETE FROM products
+    DELETE FROM e_commerce.products
     WHERE products.id =?`,
         [productId]);
 }
