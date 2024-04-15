@@ -1,0 +1,44 @@
+@port = 3000
+@host = http://localhost:{{port}}
+
+
+
+#################### PRODUCTS #####################
+
+GET {{host}}/api/products
+
+###
+GET {{host}}/api/products/3
+
+###
+POST {{host}}/api/products/new
+Content-Type: application/json
+
+{
+    "title":"Gorra blanca", 
+    "description": "Gorra blanca de algodón", 
+    "price": "37.90", 
+    "image": "http://ecommerce.com/5932659.jpg", 
+    "featured": "0", 
+    "categories_id": "4"
+}
+
+
+###
+PUT {{host}}/api/products/update/12
+Content-Type: application/json
+
+{
+    "title":"Gorra gris", 
+    "description": "Gorra gris de algodón", 
+    "price": "37.90", 
+    "image": "http://ecommerce.com/5932659.jpg", 
+    "featured": "0", 
+    "categories_id": "4"
+}
+
+
+###
+DELETE {{host}}/api/products/12
+
+
