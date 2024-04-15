@@ -1,5 +1,5 @@
 const { getAllProducts, getProductById, insertNewProduct, updateProduct, deleteProduct } = require('../../models/products.model');
-const { checkProduct } = require('../../helpers/middlewares')
+const { checkProduct } = require('../../helpers/middlewares');
 
 const router = require("express").Router();
 
@@ -9,14 +9,14 @@ router.get("/", async (req, res) => {
     const [result] = await getAllProducts();
     res.json(result);
   } catch (error) {
-    res.json({ Fatal: error.message })
+    res.json({ Fatal: error.message });
   }
 });
 
 // GET /products/PRODUCTID
 router.get('/:productId', checkProduct, async (req, res) => {
   try {
-    res.json(req.product)
+    res.json(req.product);
   } catch (error) {
     res.json({ fatal: error.message });
   }
@@ -29,7 +29,7 @@ router.post("/new", async (req, res) => {
     const [products] = await getProductById(result.insertId);
     res.json(products[0]);
   } catch (error) {
-    res.json({ fatal: error.message })
+    res.json({ fatal: error.message });
   }
 });
 

@@ -4,7 +4,7 @@ const getAllProducts = () => {
 }
 
 const getProductById = (productId) => {
-    return db.query('SELECT * FROM e_commerce.products p WHERE id = ? ', [productId])
+    return db.query('SELECT * FROM e_commerce.products p WHERE id = ? ', [productId]);
 }
 
 const insertNewProduct = ({ title, description, price, image, featured, categories_id }) => {
