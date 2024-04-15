@@ -1,0 +1,44 @@
+@port = 3000
+@host = http://localhost:{{port}}
+
+#################### USERS #####################
+
+//Devuelve un array con todos los usuarios
+GET {{host}}/api/users
+
+###
+// Devuelve el objeto usuario que coincide con el ID
+GET {{host}}/api/users/7
+
+###
+// Devuelve el usuario que ha sido creado
+POST {{host}}/api/users/new
+Content-Type: application/json
+
+{
+  "name": "Jose",
+  "last_name": "Gomez",
+  "address": "calle fulanita",
+  "email": "josee@gmail.com",
+  "card_number": 545454542,
+  "password": "hola123",
+  "role": "user"
+}
+
+###
+PUT {{host}}/api/users/update/7
+Content-Type: application/json
+
+{
+  "name": "Jose",
+  "last_name": "Gomez",
+  "address": "calle fulanita",
+  "email": "joe@gmail.com",
+  "card_number": 545454542,
+  "password": "hola1234",
+  "role": "user"
+}
+
+###
+DELETE {{host}}/api/users/6
+
