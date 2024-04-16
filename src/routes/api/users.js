@@ -38,9 +38,7 @@ router.post("/new", async (req, res) => {
     res.json({ fatal: error.message });
   }
 });
-/**
- * TODO: Devolver usuario actualizado
- */
+
 //PUT /users/update/USERID
 router.put("/update/:userId", async (req, res) => {
   const {
@@ -49,7 +47,8 @@ router.put("/update/:userId", async (req, res) => {
   } = req;
 
   try {
-    const [result] = await UsersModel.updateUser(userId, body);
+    await UsersModel.updateUser(userId, body);
+    const [[result]] = await UsersModel.selectUserById(userId);
     res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
