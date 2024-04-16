@@ -1,5 +1,5 @@
 const { getAllProducts, getProductById, insertNewProduct, updateProduct, deleteProduct } = require('../../models/products.model');
-const { checkProduct } = require('../../helpers/middlewares');
+const { checkProduct } = require('../../helpers/product.middlewares');
 
 const router = require("express").Router();
 

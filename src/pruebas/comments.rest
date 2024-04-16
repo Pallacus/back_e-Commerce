@@ -7,18 +7,18 @@
 GET {{host}}/api/comments
 
 
-### 9 azul,  11 beige
+### 1 azul,  4 beige
 POST {{host}}/api/comments/new
 Content-Type: application/json
 
 {
     "text": "Me gustan los colores vibrantes", 
-    "users_id": "2", 
-    "products_id": "11"
+    "users_id": "6", 
+    "products_id": "7"
 }
 
 ###
-PUT {{host}}/api/comments/update/11
+PUT {{host}}/api/comments/update/5
 Content-Type: application/json
 
 {
@@ -28,4 +28,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{host}}/api/comments/12
+DELETE {{host}}/api/comments/4
