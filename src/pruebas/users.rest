@@ -26,12 +26,12 @@ Content-Type: application/json
 }
 
 ###
-PUT {{host}}/api/users/update/7
+PUT {{host}}/api/users/update/3
 Content-Type: application/json
 
 {
   "name": "Jose",
-  "last_name": "Gomez",
+  "last_name": "Gomdddddez",
   "address": "calle fulanita",
   "email": "joe@gmail.com",
   "card_number": 545454542,
@@ -40,5 +40,5 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{host}}/api/users/6
+DELETE {{host}}/api/users/1
 
