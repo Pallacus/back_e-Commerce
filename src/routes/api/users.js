@@ -1,5 +1,6 @@
 const router = require("express").Router();
 
+const { checkUser } = require("../../helpers/users.middleware");
 const UsersModel = require("../../models/users.model");
 
 // GET /users
@@ -13,15 +14,9 @@ router.get("/", async (req, res) => {
 });
 
 // GET /users/USERID
-router.get("/:userId", async (req, res) => {
-  const userId = req.params.userId;
-
+router.get("/:userId", checkUser, async (req, res) => {
   try {
-    const [[result]] = await UsersModel.selectUserById(userId);
-
-    return result
-      ? res.json(result)
-      : res.json({ fatal: "El usuario no existe" });
+    res.json(req.user);
   } catch (error) {
     res.json({ fatal: error.message });
   }
@@ -38,33 +33,27 @@ router.post("/new", async (req, res) => {
     res.json({ fatal: error.message });
   }
 });
-/**
- * TODO: Devolver usuario actualizado
- */
+
 //PUT /users/update/USERID
-router.put("/update/:userId", async (req, res) => {
+router.put("/update/:userId", checkUser, async (req, res) => {
   const {
     params: { userId },
     body,
   } = req;
-
   try {
-    const [result] = await UsersModel.updateUser(userId, body);
-    res.json(result);
+    await UsersModel.updateUser(userId, body);
+    res.json(req.user);
   } catch (error) {
     res.json({ fatal: error.message });
   }
 });
 
 //DELETE /users/USERID
-router.delete("/:userId", async (req, res) => {
+router.delete("/:userId", checkUser, async (req, res) => {
   const { userId } = req.params;
-
   try {
-    const [[user]] = await UsersModel.selectUserById(userId);
     await UsersModel.deleteUserById(userId);
-
-    return user ? res.json(user) : res.json({ fatal: "El usuario no existe" });
+    res.json(req.user);
   } catch (error) {
     res.json({ fatal: error.message });
   }
