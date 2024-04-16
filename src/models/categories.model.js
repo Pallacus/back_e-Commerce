@@ -1,26 +1,26 @@
 const getAllCategories = () => {
-    return db.query('SELECT * FROM e_commerce.categories');
+    return db.query('SELECT * FROM categories');
 }
 const insertNewCategory = (title) => {
     return db.query(`
-INSERT INTO e_commerce.categories (title) VALUES (?);`, [title]);
+INSERT INTO categories (title) VALUES (?);`, [title]);
 }
 const getCategoryById = (categoryId) => {
     return db.query(`
-    SELECT * FROM e_commerce.categories
+    SELECT * FROM categories
     WHERE categories.id = ?`, [categoryId]);
 }
 const updateCategory = (categoryId, title) => {
     console.log(categoryId, title);
     return db.query(`
-    UPDATE e_commerce.categories
+    UPDATE categories
     SET title = ?
     WHERE categories.id = ?`,
         [title, categoryId]);
 }
 const deleteCategory = (categoryId) => {
     return db.query(`
-    DELETE FROM e_commerce.categories
+    DELETE FROM categories
     WHERE categories.id = ?`,
         [categoryId]);
 }

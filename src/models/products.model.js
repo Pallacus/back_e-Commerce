@@ -1,15 +1,15 @@
 
 const getAllProducts = () => {
-    return db.query('SELECT * FROM e_commerce.products');
+    return db.query('SELECT * FROM products');
 }
 
 const getProductById = (productId) => {
-    return db.query('SELECT * FROM e_commerce.products p WHERE id = ? ', [productId]);
+    return db.query('SELECT * FROM products p WHERE id = ? ', [productId]);
 }
 
 const insertNewProduct = ({ title, description, price, image, featured, categories_id }) => {
     return db.query(`
-    INSERT INTO e_commerce.products(title, description, price, image, featured, categories_id)
+    INSERT INTO products(title, description, price, image, featured, categories_id)
     VALUES(?, ?, ?, ?, ?, ?);`,
         [title, description, price, image, featured, categories_id]
     );
@@ -17,7 +17,7 @@ const insertNewProduct = ({ title, description, price, image, featured, categori
 
 const updateProduct = (productId, { title, description, price, image, featured, categories_id }) => {
     return db.query(`
-    UPDATE e_commerce.products 
+    UPDATE products 
     SET title = ?, description = ?, price = ?, image = ?, featured = ?, categories_id = ?
     WHERE id = ?;`,
         [title, description, price, image, featured, categories_id, productId]);
@@ -25,7 +25,7 @@ const updateProduct = (productId, { title, description, price, image, featured, 
 
 const deleteProduct = (productId) => {
     return db.query(`
-    DELETE FROM e_commerce.products
+    DELETE FROM products
     WHERE products.id =?`,
         [productId]);
 }

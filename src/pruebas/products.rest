@@ -39,6 +39,6 @@ Content-Type: application/json
 
 
 ###
-DELETE {{host}}/api/products/5
+DELETE {{host}}/api/products/4
 
 
