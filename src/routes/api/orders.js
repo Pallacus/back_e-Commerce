@@ -11,16 +11,25 @@ router.get("/", async (req, res) => {
 });
 
 // GET /orders/CODE
-router.get("/", (req, res) => {
+router.get("/:orderCode", async (req, res) => {
+  const code = req.params.orderCode;
+
   try {
+    const [result] = await OrdersModel.selectOrdersByCode(code);
+
+    res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
   }
 });
 
 // POST /orders/new
-router.post("/new", (req, res) => {
+router.post("/new", async (req, res) => {
   try {
+    const [order] = await OrdersModel.insertOrder(req.body);
+    const [[result]] = await OrdersModel.selectOrderById(order.insertId);
+
+    res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
   }
