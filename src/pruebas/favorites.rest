@@ -7,7 +7,10 @@
 GET {{host}}/api/favorites
 
 ###
-GET {{host}}/api/favorites/8
+GET {{host}}/api/favorites/5
+
+###
+GET {{host}}/api/favorites/5/paginated?page=1&limit=16
 
 
 ###
@@ -20,11 +23,11 @@ Content-Type: application/json
 }
 
 ###
-PUT {{host}}/api/favorites/update/9
+PUT {{host}}/api/favorites/update/7
 Content-Type: application/json
 
 {
-    "users_id": "8", 
+    "users_id": "5", 
     "products_id": "4"
 }
 

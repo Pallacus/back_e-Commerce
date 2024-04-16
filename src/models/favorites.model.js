@@ -14,6 +14,17 @@ const getFavoritesByUser = (usersId) => {
     WHERE users_id = ?`,
         [usersId]);
 }
+const getFavoritesPaginated = (usersId, page, limit) => {
+    page = Number(page);
+    limit = Number(limit);
+
+    return db.query(`
+    SELECT * FROM favorites 
+    WHERE users_id = ? 
+    LIMIT ? OFFSET ?`,
+        [usersId, limit, ((page - 1) * limit)]
+    );
+}
 const addFavorite = ({ users_id, products_id }) => {
     return db.query(`
     INSERT INTO favorites (users_id, products_id)
@@ -31,4 +42,4 @@ const deleteFavorite = (favoriteId) => {
     WHERE id = ?`,
         [favoriteId]);
 }
-module.exports = { getAllFavorites, getFavoriteById, getFavoritesByUser, addFavorite, updateFavoriteById, deleteFavorite }
+module.exports = { getAllFavorites, getFavoriteById, getFavoritesByUser, getFavoritesPaginated, addFavorite, updateFavoriteById, deleteFavorite }
