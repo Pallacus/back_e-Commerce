@@ -11,11 +11,15 @@ GET {{host}}/api/products
 GET {{host}}/api/products/1
 
 ###
+GET {{host}}/api/products/paginated?page=1&limit=16
+
+
+###
 POST {{host}}/api/products/new
 Content-Type: application/json
 
 {
-    "title": "Gorra naranja", 
+    "title": "Gorra gris", 
     "description": "Gorra naranja de algodón", 
     "price": "37.90", 
     "image": "http://ecommerce.com/5932659.jpg", 

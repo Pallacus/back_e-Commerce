@@ -1,5 +1,12 @@
-const { getAllProducts, getProductById, insertNewProduct, updateProduct, deleteProduct } = require('../../models/products.model');
-const { checkProduct } = require('../../helpers/product.middlewares');
+const {
+  getAllProducts,
+  getProductById,
+  insertNewProduct,
+  updateProduct,
+  deleteProduct,
+  getAllProductsPaginated,
+} = require("../../models/products.model");
+const { checkProduct } = require("../../helpers/product.middlewares");
 
 const router = require("express").Router();
 
@@ -13,8 +20,19 @@ router.get("/", async (req, res) => {
   }
 });
 
+// GET /products/paginated?page=1&limit=16
+router.get("/paginated", async (req, res) => {
+  let { page = 1, limit = 16 } = req.query;
+  try {
+    const [products] = await getAllProductsPaginated(page, limit);
+    res.json(products);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+});
+
 // GET /products/PRODUCTID
-router.get('/:productId', checkProduct, async (req, res) => {
+router.get("/:productId", checkProduct, async (req, res) => {
   try {
     res.json(req.product);
   } catch (error) {
@@ -36,7 +54,10 @@ router.post("/new", async (req, res) => {
 //PUT /products/update/PRODUCTID
 router.put("/update/:productId", checkProduct, async (req, res) => {
   //updateProduct
-  const { params: { productId }, body } = req;
+  const {
+    params: { productId },
+    body,
+  } = req;
   try {
     await updateProduct(productId, body);
     const [products] = await getProductById(productId);
@@ -48,7 +69,7 @@ router.put("/update/:productId", checkProduct, async (req, res) => {
 
 //DELETE /products/PRODUCTID
 router.delete("/:productId", checkProduct, async (req, res) => {
-  const { productId } = req.params
+  const { productId } = req.params;
   try {
     await deleteProduct(productId);
     res.json(req.product);
