@@ -1,0 +1,32 @@
+@port = 3000
+@host = http://localhost:{{port}}
+
+
+#################### FAVORITES #####################
+
+GET {{host}}/api/favorites
+
+###
+GET {{host}}/api/favorites/8
+
+
+###
+POST {{host}}/api/favorites/new
+Content-Type: application/json
+
+{
+    "users_id": "5", 
+    "products_id": "7"
+}
+
+###
+PUT {{host}}/api/favorites/update/9
+Content-Type: application/json
+
+{
+    "users_id": "8", 
+    "products_id": "4"
+}
+
+###
+DELETE {{host}}/api/favorites/8
