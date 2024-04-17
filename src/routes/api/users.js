@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const bcrypt = require("bcryptjs");
 
 const { checkUser } = require("../../helpers/users.middleware");
 const UsersModel = require("../../models/users.model");
@@ -22,13 +23,39 @@ router.get("/:userId", checkUser, async (req, res) => {
   }
 });
 
-// POST /users/new
+// POST /users/new                           REGISTRO
 router.post("/new", async (req, res) => {
+  req.body.password = bcrypt.hashSync(req.body.password, 8);
+  console.log(req.body.password);
+
   try {
     const [user] = await UsersModel.insertUser(req.body);
     const [[result]] = await UsersModel.selectUserById(user.insertId);
 
     res.json(result);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+});
+
+// POST /users/login                           LOGIN
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const [[user]] = await UsersModel.selectUserByEmail(email);
+
+    if (!user) {
+      return res.json({ fatal: "Email y/o contraseña incorrectos" });
+    }
+
+    const comparePassword = bcrypt.compareSync(password, user.password);
+
+    if (!comparePassword) {
+      return res.json({ fatal: "Email y/o contraseña incorrectos" });
+    }
+
+    res.json({ success: 'Login correcto'});
+    
   } catch (error) {
     res.json({ fatal: error.message });
   }

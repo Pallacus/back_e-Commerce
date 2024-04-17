@@ -6,6 +6,10 @@ const selectUserById = (userId) => {
   return db.query("SELECT * FROM users WHERE id = ?", userId);
 };
 
+const selectUserByEmail = (email) => {
+  return db.query("SELECT * FROM users WHERE email = ?", email);
+}
+
 const insertUser = ({
   name,
   last_name,
@@ -41,4 +45,5 @@ module.exports = {
   insertUser,
   updateUser,
   deleteUserById,
+  selectUserByEmail
 };
