@@ -16,6 +16,10 @@ const getProductById = (productId) => {
   return db.query("SELECT * FROM products WHERE id = ? ", [productId]);
 };
 
+const getProductByCategoryId = (categoryId) => {
+  return db.query("SELECT * FROM products WHERE categories_id = ? ", [categoryId]);
+};
+
 const insertNewProduct = ({ title, description, price, image, featured, categories_id }) => {
     return db.query(`
     INSERT INTO products(title, description, price, image, featured, categories_id)
@@ -47,4 +51,5 @@ module.exports = {
   updateProduct,
   deleteProduct,
   getAllProductsPaginated,
+  getProductByCategoryId
 };

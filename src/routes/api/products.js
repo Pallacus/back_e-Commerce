@@ -5,6 +5,7 @@ const {
   updateProduct,
   deleteProduct,
   getAllProductsPaginated,
+  getProductByCategoryId,
 } = require("../../models/products.model");
 const { checkProduct } = require("../../helpers/product.middlewares");
 
@@ -35,6 +36,16 @@ router.get("/paginated", async (req, res) => {
 router.get("/:productId", checkProduct, async (req, res) => {
   try {
     res.json(req.product);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+});
+
+// GET /products/category/CATEGORYID
+router.get("/category/:categoryId", async (req, res) => {
+  try {
+    const [result] = await getProductByCategoryId(req.params.categoryId);
+    res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
   }
