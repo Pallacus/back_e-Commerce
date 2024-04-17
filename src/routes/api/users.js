@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 
-const { checkUser } = require("../../helpers/users.middleware");
 const UsersModel = require("../../models/users.model");
+const { checkUser } = require("../../helpers/users.middlewares");
+const { createToken } = require("../../helpers/utils");
 
 // GET /users
 router.get("/", async (req, res) => {
@@ -54,7 +55,10 @@ router.post("/login", async (req, res) => {
       return res.json({ fatal: "Email y/o contraseña incorrectos" });
     }
 
-    res.json({ success: 'Login correcto'});
+    res.json({
+      success: 'Login correcto',
+      token: createToken(user)
+    });
     
   } catch (error) {
     res.json({ fatal: error.message });
