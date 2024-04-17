@@ -11,7 +11,7 @@ GET {{host}}/api/users
 GET {{host}}/api/users/7
 
 ###
-// Devuelve el usuario que ha sido creado
+// Devuelve el usuario que ha sido registrado
 POST {{host}}/api/users/new
 Content-Type: application/json
 
@@ -19,10 +19,20 @@ Content-Type: application/json
   "name": "Jose",
   "last_name": "Gomez",
   "address": "calle fulanita",
-  "email": "josee@gmail.com",
+  "email": "otro@gmail.com",
   "card_number": 545454542,
   "password": "hola123",
   "role": "user"
+}
+
+###
+// Devuelve un mensaje de si hay algún error o el login es correcto.
+POST {{host}}/api/users/login
+Content-Type: application/json
+
+{
+  "email": "otro@gmail.com",
+  "password": "hola123"
 }
 
 ###
