@@ -1,6 +1,9 @@
 const router = require("express").Router();
+const bcrypt = require("bcryptjs");
 
 const UsersModel = require("../../models/users.model");
+const { checkUser } = require("../../helpers/users.middlewares");
+const { createToken } = require("../../helpers/utils");
 
 // GET /users
 router.get("/", async (req, res) => {
@@ -12,23 +15,32 @@ router.get("/", async (req, res) => {
   }
 });
 
-// GET /users/USERID
-router.get("/:userId", async (req, res) => {
-  const userId = req.params.userId;
-
+//TODO perfil usuario
+/**
+ * TODO: Si paso por checkToken tengo los datos del usuario, por si queremos mostrar una página de perfil de usuario
+ */
+// GET /users/profile
+router.get("/profile", async (req, res) => {
   try {
-    const [[result]] = await UsersModel.selectUserById(userId);
-
-    return result
-      ? res.json(result)
-      : res.json({ fatal: "El usuario no existe" });
+    res.json(req.user);
   } catch (error) {
     res.json({ fatal: error.message });
   }
 });
 
-// POST /users/new
+// GET /users/USERID
+router.get("/:userId", checkUser, async (req, res) => {
+  try {
+    res.json(req.user);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+});
+
+// POST /users/new                           REGISTRO
 router.post("/new", async (req, res) => {
+  req.body.password = bcrypt.hashSync(req.body.password, 8);
+
   try {
     const [user] = await UsersModel.insertUser(req.body);
     const [[result]] = await UsersModel.selectUserById(user.insertId);
@@ -38,33 +50,52 @@ router.post("/new", async (req, res) => {
     res.json({ fatal: error.message });
   }
 });
-/**
- * TODO: Devolver usuario actualizado
- */
+
+// POST /users/login                           LOGIN
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const [[user]] = await UsersModel.selectUserByEmail(email);
+
+    if (!user) {
+      return res.json({ fatal: "Email y/o contraseña incorrectos" });
+    }
+
+    const comparePassword = bcrypt.compareSync(password, user.password);
+
+    if (!comparePassword) {
+      return res.json({ fatal: "Email y/o contraseña incorrectos" });
+    }
+
+    res.json({
+      success: "Login correcto",
+      token: createToken(user),
+    });
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+});
+
 //PUT /users/update/USERID
-router.put("/update/:userId", async (req, res) => {
+router.put("/update/:userId", checkUser, async (req, res) => {
   const {
     params: { userId },
     body,
   } = req;
-
   try {
-    const [result] = await UsersModel.updateUser(userId, body);
-    res.json(result);
+    await UsersModel.updateUser(userId, body);
+    res.json(req.user);
   } catch (error) {
     res.json({ fatal: error.message });
   }
 });
 
 //DELETE /users/USERID
-router.delete("/:userId", async (req, res) => {
+router.delete("/:userId", checkUser, async (req, res) => {
   const { userId } = req.params;
-
   try {
-    const [[user]] = await UsersModel.selectUserById(userId);
     await UsersModel.deleteUserById(userId);
-
-    return user ? res.json(user) : res.json({ fatal: "El usuario no existe" });
+    res.json(req.user);
   } catch (error) {
     res.json({ fatal: error.message });
   }

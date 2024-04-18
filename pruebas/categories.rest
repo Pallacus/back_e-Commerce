@@ -16,13 +16,13 @@ Content-Type: application/json
 }
 
 ###
-PUT {{host}}/api/categories/update/5
+PUT {{host}}/api/categories/update/3
 Content-Type: application/json
 
 {
-    "title": "ChOni"
+    "title": "mejunje"
 }
 
 ###
-DELETE {{host}}/api/categories/4
+DELETE {{host}}/api/categories/9
 

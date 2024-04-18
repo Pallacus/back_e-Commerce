@@ -6,17 +6,33 @@
 #################### PRODUCTS #####################
 
 GET {{host}}/api/products
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTMzNDcwNzd9.sxXMneMrsoF3bkezDcRCjtW3Hd-yrJXqzyIiAVhlBBg
 
 ###
-GET {{host}}/api/products/11
+###
+GET {{host}}/api/products/featured
+
+
+###
+GET {{host}}/api/products/1
+
+###
+GET {{host}}/api/products/paginated?page=1&limit=16
+
+###
+GET {{host}}/api/products/paginated?page=1&limit=16
+
+###
+GET {{host}}/api/products/category/4
+
 
 ###
 POST {{host}}/api/products/new
 Content-Type: application/json
 
 {
-    "title": "Gorra blanca", 
-    "description": "Gorra blanca de algodón", 
+    "title": "Gorra amarilla", 
+    "description": "Gorra naranja de algodón", 
     "price": "37.90", 
     "image": "http://ecommerce.com/5932659.jpg", 
     "featured": "0", 
@@ -25,7 +41,7 @@ Content-Type: application/json
 
 
 ###
-PUT {{host}}/api/products/update/2
+PUT {{host}}/api/products/update/4
 Content-Type: application/json
 
 {
@@ -39,6 +55,6 @@ Content-Type: application/json
 
 
 ###
-DELETE {{host}}/api/products/2
+DELETE {{host}}/api/products/4
 
 

@@ -1,4 +1,5 @@
 const { getAllCategories, insertNewCategory, getCategoryById, updateCategory, deleteCategory } = require('../../models/categories.model');
+const { checkCategory } = require('../../helpers/category.middlewares');
 
 const router = require("express").Router();
 
@@ -25,7 +26,7 @@ router.post("/new", async (req, res) => {
 });
 
 //PUT /categories/update/CATEGORYID
-router.put("/update/:categoryId", async (req, res) => {
+router.put("/update/:categoryId", checkCategory, async (req, res) => {
   const { params: { categoryId }, body: { title } } = req;
   try {
     await updateCategory(categoryId, title);
@@ -37,7 +38,7 @@ router.put("/update/:categoryId", async (req, res) => {
 });
 
 //DELETE /categories/CATEGORYID
-router.delete("/:categoryId", async (req, res) => {
+router.delete("/:categoryId", checkCategory, async (req, res) => {
   const { categoryId } = req.params;
   try {
     const [categories] = await getCategoryById(categoryId);

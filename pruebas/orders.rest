@@ -1,0 +1,29 @@
+@port = 3000
+@host = http://localhost:{{port}}
+
+#################### ORDERS #####################
+
+// Devuelve un array de pedidos 
+GET {{host}}/api/orders
+
+###
+//Devuelve el pedido que coincide con el código de pedido
+GET {{host}}/api/orders/ORDER001
+
+###
+// Devuelve el nuevo pedido creado
+POST {{host}}/api/orders/new
+Content-Type: application/json
+
+{
+    "code": "ORDER012",
+    "quantity": 1,
+    "users_id": 7,
+    "products_id": 1
+}
+
+###
+PUT {{host}}/api/orders/update/:orderId
+
+###
+DELETE {{host}}/api/orders/:orderId

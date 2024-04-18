@@ -1,32 +1,60 @@
-
 const getAllProducts = () => {
-    return db.query('SELECT * FROM e_commerce.products');
+  return db.query("SELECT * FROM products");
+};
+
+const getAllProductsPaginated = (page, limit) => {
+    page = Number(page);
+    limit = Number(limit);
+    
+  return db.query(`SELECT * FROM products LIMIT ? OFFSET ?`, [
+    limit,
+    ((page - 1) * limit)
+  ]);
+};
+
+const getAllProductsFeatured = () => {
+  return db.query(`SELECT * FROM products WHERE featured = 1`);
 }
 
 const getProductById = (productId) => {
-    return db.query('SELECT * FROM e_commerce.products p WHERE id = ? ', [productId]);
-}
+  return db.query("SELECT * FROM products WHERE id = ? ", [productId]);
+};
+
+const getProductByCategoryId = (categoryId) => {
+  return db.query("SELECT * FROM products WHERE categories_id = ? ", [categoryId]);
+};
 
 const insertNewProduct = ({ title, description, price, image, featured, categories_id }) => {
     return db.query(`
-    INSERT INTO e_commerce.products(title, description, price, image, featured, categories_id)
+    INSERT INTO products(title, description, price, image, featured, categories_id)
     VALUES(?, ?, ?, ?, ?, ?);`,
-        [title, description, price, image, featured, categories_id]
-    );
-}
+    [title, description, price, image, featured, categories_id]
+  );
+};
 
 const updateProduct = (productId, { title, description, price, image, featured, categories_id }) => {
     return db.query(`
-    UPDATE e_commerce.products 
+    UPDATE products 
     SET title = ?, description = ?, price = ?, image = ?, featured = ?, categories_id = ?
     WHERE id = ?;`,
-        [title, description, price, image, featured, categories_id, productId]);
-}
+    [title, description, price, image, featured, categories_id, productId]
+  );
+};
 
 const deleteProduct = (productId) => {
     return db.query(`
-    DELETE FROM e_commerce.products
+    DELETE FROM products
     WHERE products.id =?`,
-        [productId]);
-}
-module.exports = { getAllProducts, getProductById, insertNewProduct, updateProduct, deleteProduct };
+    [productId]
+  );
+};
+module.exports = {
+  getAllProducts,
+  getProductById,
+  insertNewProduct,
+  updateProduct,
+  deleteProduct,
+  getAllProductsPaginated,
+  getProductByCategoryId,
+  getAllProductsFeatured
+};

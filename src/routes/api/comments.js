@@ -1,5 +1,5 @@
 const { getAllComments, insertNewComment, getCommentById, updateComment, deleteComment } = require('../../models/comments.model');
-const { checkComment } = require('../../helpers/middlewares');
+const { checkComment } = require('../../helpers/comment.middlewares');
 
 const router = require("express").Router();
 
