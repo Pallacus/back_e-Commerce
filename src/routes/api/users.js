@@ -15,6 +15,19 @@ router.get("/", async (req, res) => {
   }
 });
 
+//TODO perfil usuario
+/**
+ * TODO: Si paso por checkToken tengo los datos del usuario, por si queremos mostrar una página de perfil de usuario
+ */
+// GET /users/profile
+router.get("/profile", async (req, res) => {
+  try {
+    res.json(req.user);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+});
+
 // GET /users/USERID
 router.get("/:userId", checkUser, async (req, res) => {
   try {
@@ -56,10 +69,9 @@ router.post("/login", async (req, res) => {
     }
 
     res.json({
-      success: 'Login correcto',
-      token: createToken(user)
+      success: "Login correcto",
+      token: createToken(user),
     });
-    
   } catch (error) {
     res.json({ fatal: error.message });
   }

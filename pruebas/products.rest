@@ -7,6 +7,12 @@
 
 GET {{host}}/api/products
 # Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTMzNDcwNzd9.sxXMneMrsoF3bkezDcRCjtW3Hd-yrJXqzyIiAVhlBBg
+
+###
+###
+GET {{host}}/api/products/featured
+
+
 ###
 GET {{host}}/api/products/1
 

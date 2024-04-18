@@ -35,11 +35,14 @@ router.post("/new", async (req, res) => {
   }
 });
 
-//PUT /orders/update/CODE
-router.put("/update/:orderCode", (req, res) => {});
-
+//TODO borrar pedidos
+/**
+ * TODO TERMINAR BORRADO DE PEDIDOS
+ * ? Se deben poder anular pedidos
+ * ! Yo lo dejaría para gestión de devolución que nuestra app ahora mismo no lo haría.
+ */
 //DELETE /orders/CODE
-router.delete("/:orderId", (req, res) => {
+router.delete("/:orderCode", (req, res) => {
   try {
   } catch (error) {
     res.json({ fatal: error.message });

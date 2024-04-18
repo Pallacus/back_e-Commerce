@@ -19,9 +19,9 @@ Content-Type: application/json
   "name": "Jose",
   "last_name": "Gomez",
   "address": "calle fulanita",
-  "email": "otro@gmail.com",
+  "email": "otao@gmail.com",
   "card_number": 545454542,
-  "password": "hola123",
+  "password": "123456",
   "role": "user"
 }
 

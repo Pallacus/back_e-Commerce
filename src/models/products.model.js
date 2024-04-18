@@ -12,6 +12,10 @@ const getAllProductsPaginated = (page, limit) => {
   ]);
 };
 
+const getAllProductsFeatured = () => {
+  return db.query(`SELECT * FROM products WHERE featured = 1`);
+}
+
 const getProductById = (productId) => {
   return db.query("SELECT * FROM products WHERE id = ? ", [productId]);
 };
@@ -51,5 +55,6 @@ module.exports = {
   updateProduct,
   deleteProduct,
   getAllProductsPaginated,
-  getProductByCategoryId
+  getProductByCategoryId,
+  getAllProductsFeatured
 };

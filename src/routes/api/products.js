@@ -6,6 +6,7 @@ const {
   deleteProduct,
   getAllProductsPaginated,
   getProductByCategoryId,
+  getAllProductsFeatured,
 } = require("../../models/products.model");
 const { checkProduct } = require("../../helpers/product.middlewares");
 
@@ -15,6 +16,16 @@ const router = require("express").Router();
 router.get("/", async (req, res) => {
   try {
     const [result] = await getAllProducts();
+    res.json(result);
+  } catch (error) {
+    res.json({ Fatal: error.message });
+  }
+});
+
+// GET /products/featured
+router.get("/featured", async (req, res) => {
+  try {
+    const [result] = await getAllProductsFeatured();
     res.json(result);
   } catch (error) {
     res.json({ Fatal: error.message });
