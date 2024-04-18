@@ -108,14 +108,24 @@ TRUNCATE TABLE `products`;
 ALTER TABLE `products` AUTO_INCREMENT = 1;
 
 -- Inserción de datos para la tabla `products`
-INSERT INTO `products` (`title`, `description`, `price`, `image`, `featured`, `categories_id`) VALUES 
+INSERT INTO products(title, description, price, image, featured, categories_id) VALUES
 ('Classic T-Shirt', 'A comfortable and stylish t-shirt for daily wear', 15.99, 'https://img.sharemyimage.com/2024/04/17/page-1.jpeg', 1, 1),
 ('Slim Fit Jeans', 'High-quality denim jeans with a slim fit', 29.99, 'https://img.sharemyimage.com/2024/04/17/page-2.jpeg', 0, 1),
 ('Running Shoes', 'Lightweight and durable shoes for running', 49.99, 'https://img.sharemyimage.com/2024/04/17/page-3.jpeg', 1, 2),
 ('Leather Wallet', 'Genuine leather wallet with multiple compartments', 24.99, 'https://img.sharemyimage.com/2024/04/17/page-4.jpeg', 0, 3),
-('Formal Shirt', 'Stylish formal shirt for special occasions', 39.99, 'https://img.sharemyimage.com/2024/04/17/page-1.jpeg', 1, 1),
-('Casual Sneakers', 'Comfortable sneakers for everyday wear', 34.99, 'https://img.sharemyimage.com/2024/04/17/page-2.jpeg', 0, 4),
-('Designer Handbag', 'Fashionable designer handbag', 89.99, 'https://img.sharemyimage.com/2024/04/17/page-3.jpeg', 1, 5),
-('Sports Shorts', 'Breathable sports shorts for workouts', 19.99, 'https://img.sharemyimage.com/2024/04/17/page-4.jpeg', 0, 6),
-('Swimwear', 'Trendy swimwear for the beach', 29.99, 'https://img.sharemyimage.com/2024/04/17/page-1.jpeg', 1, 2),
-('Winter Coat', 'Warm and stylish winter coat', 79.99, 'https://img.sharemyimage.com/2024/04/17/page-2.jpeg', 0, 1);
+('Sports Water Bottle', 'BPA-free water bottle for sports activities', 9.99, 'https://img.sharemyimage.com/2024/04/17/page-5.jpeg', 1, 4),
+('Smartphone Case', 'Protective case for smartphones', 12.99, 'https://img.sharemyimage.com/2024/04/17/page-6.jpeg', 0, 3),
+('Yoga Mat', 'Non-slip yoga mat for yoga and exercise', 19.99, 'https://img.sharemyimage.com/2024/04/17/page-7.jpeg', 1, 3),
+('Laptop Backpack', 'Spacious backpack for carrying laptops and accessories', 39.99, 'https://img.sharemyimage.com/2024/04/17/page-8.jpeg', 0, 3),
+('Wireless Earbuds', 'Bluetooth earbuds for wireless listening', 69.99, 'https://img.sharemyimage.com/2024/04/17/page-9.jpeg', 1, 3),
+('Sunglasses', 'UV protection sunglasses for sunny days', 17.99, 'https://img.sharemyimage.com/2024/04/17/page-10.jpeg', 0, 3),
+('Hooded Sweatshirt', 'Cozy hooded sweatshirt for chilly weather', 34.99, 'https://img.sharemyimage.com/2024/04/17/page-11.jpeg', 1, 1),
+('Denim Jacket', 'Classic denim jacket with a timeless design', 59.99, 'https://img.sharemyimage.com/2024/04/17/page-12.jpeg', 0, 1),
+('Fitness Tracker', 'Wearable fitness tracker to monitor activity', 79.99, 'https://img.sharemyimage.com/2024/04/17/page-13.jpeg', 1, 4),
+('Leather Messenger Bag', 'Stylish leather messenger bag for everyday use', 89.99, 'https://img.sharemyimage.com/2024/04/17/page-14.jpeg', 0, 3),
+('Protein Powder', 'High-quality protein powder for muscle recovery', 29.99, 'https://img.sharemyimage.com/2024/04/17/page-15.jpeg', 1, 4),
+('Portable Charger', 'Compact portable charger for on-the-go charging', 19.99, 'https://img.sharemyimage.com/2024/04/17/page-16.jpeg', 0, 3),
+('Yoga Blocks', 'Set of yoga blocks for support and stability', 14.99, 'https://img.sharemyimage.com/2024/04/17/page-17.jpeg', 1, 4),
+('Laptop Sleeve', 'Padded laptop sleeve for protection', 24.99, 'https://img.sharemyimage.com/2024/04/17/page-18.jpeg', 0, 3),
+('Wireless Mouse', 'Ergonomic wireless mouse for comfortable use', 12.99, 'https://img.sharemyimage.com/2024/04/17/page-19.jpeg', 1, 3),
+('Reflective Running Jacket', 'Jacket with reflective strips for night running', 49.99, 'https://img.sharemyimage.com/2024/04/17/page-20.jpeg', 0, 3);
