@@ -40,7 +40,6 @@ router.get("/:userId", checkUser, async (req, res) => {
 // POST /users/new                           REGISTRO
 router.post("/new", async (req, res) => {
   req.body.password = bcrypt.hashSync(req.body.password, 8);
-  console.log(req.body.password);
 
   try {
     const [user] = await UsersModel.insertUser(req.body);

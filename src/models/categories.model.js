@@ -1,28 +1,43 @@
 const getAllCategories = () => {
-    return db.query('SELECT * FROM categories');
-}
+  return db.query("SELECT * FROM categories");
+};
 const insertNewCategory = (title) => {
-    return db.query(`
-INSERT INTO categories (title) VALUES (?);`, [title]);
-}
+  return db.query(
+    `
+INSERT INTO categories (title) VALUES (?);`,
+    [title]
+  );
+};
 const getCategoryById = (categoryId) => {
-    return db.query(`
+  return db.query(
+    `
     SELECT * FROM categories
-    WHERE categories.id = ?`, [categoryId]);
-}
+    WHERE categories.id = ?`,
+    [categoryId]
+  );
+};
 const updateCategory = (categoryId, title) => {
-    console.log(categoryId, title);
-    return db.query(`
+  return db.query(
+    `
     UPDATE categories
     SET title = ?
     WHERE categories.id = ?`,
-        [title, categoryId]);
-}
+    [title, categoryId]
+  );
+};
 const deleteCategory = (categoryId) => {
-    return db.query(`
+  return db.query(
+    `
     DELETE FROM categories
     WHERE categories.id = ?`,
-        [categoryId]);
-}
+    [categoryId]
+  );
+};
 
-module.exports = { getAllCategories, insertNewCategory, getCategoryById, updateCategory, deleteCategory };
+module.exports = {
+  getAllCategories,
+  insertNewCategory,
+  getCategoryById,
+  updateCategory,
+  deleteCategory,
+};

@@ -29,8 +29,6 @@ const checkToken = async (req, res, next) => {
   } catch (error) {
     return res.status(401).json({ fatal: "El token es incorrecto" });
   }
-  console.log(obj);
-
   const [[user]] = await UsersModel.selectUserById(obj.id);
   req.user = user;
 
