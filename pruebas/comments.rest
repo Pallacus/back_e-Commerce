@@ -14,6 +14,7 @@ GET {{host}}/api/comments/3
 ### 1 azul,  4 beige
 POST {{host}}/api/comments/new
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzEzNTEzMTQ3fQ.R1ZLcc1gvIGTf6gwFBf_HJVPFwRd4ds1B-fODDXI8Pc
 
 {
     "text": "Me gustan los colores vibrantes", 

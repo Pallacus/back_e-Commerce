@@ -6,7 +6,10 @@ const {
   deleteCategory,
 } = require("../../models/categories.model");
 const { checkCategory } = require("../../helpers/category.middlewares");
-const { checkToken } = require("../../helpers/users.middlewares");
+const {
+  checkToken,
+  checkAdminRole,
+} = require("../../helpers/users.middlewares");
 
 const router = require("express").Router();
 
@@ -31,7 +34,7 @@ router.get("/:categoryId", async (req, res) => {
 });
 
 // POST /categories/new
-router.post("/new", async (req, res) => {
+router.post("/new", checkToken, checkAdminRole, async (req, res) => {
   const { title } = req.body;
   try {
     const [result] = await insertNewCategory(title);
@@ -43,33 +46,45 @@ router.post("/new", async (req, res) => {
 });
 
 //PUT /categories/update/CATEGORYID
-router.put("/update/:categoryId", checkCategory, async (req, res) => {
-  const {
-    params: { categoryId },
-    body: { title },
-  } = req;
-  try {
-    await updateCategory(categoryId, title);
-    const [categories] = await getCategoryById(categoryId);
-    res.json(categories[0]);
-  } catch (error) {
-    res.json({ fatal: error.message });
+router.put(
+  "/update/:categoryId",
+  checkCategory,
+  checkToken,
+  checkAdminRole,
+  async (req, res) => {
+    const {
+      params: { categoryId },
+      body: { title },
+    } = req;
+    try {
+      await updateCategory(categoryId, title);
+      const [categories] = await getCategoryById(categoryId);
+      res.json(categories[0]);
+    } catch (error) {
+      res.json({ fatal: error.message });
+    }
   }
-});
+);
 
 //DELETE /categories/CATEGORYID
-router.delete("/:categoryId", checkCategory, async (req, res) => {
-  const { categoryId } = req.params;
-  try {
-    const [categories] = await getCategoryById(categoryId);
-    if (categories.length === 0) {
-      return res.json({ fatal: `Esta categoría no existe.` });
+router.delete(
+  "/:categoryId",
+  checkCategory,
+  checkToken,
+  checkAdminRole,
+  async (req, res) => {
+    const { categoryId } = req.params;
+    try {
+      const [categories] = await getCategoryById(categoryId);
+      if (categories.length === 0) {
+        return res.json({ fatal: `Esta categoría no existe.` });
+      }
+      await deleteCategory(categoryId);
+      res.json(categories[0]);
+    } catch (error) {
+      res.json({ fartal: error.message });
     }
-    await deleteCategory(categoryId);
-    res.json(categories[0]);
-  } catch (error) {
-    res.json({ fartal: error.message });
   }
-});
+);
 
 module.exports = router;

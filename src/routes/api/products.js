@@ -1,9 +1,6 @@
 const ProductModel = require("../../models/products.model");
 const { checkProduct } = require("../../helpers/product.middlewares");
-const {
-  checkToken,
-  checkAdminRole,
-} = require("../../helpers/users.middlewares");
+const {checkToken, checkAdminRole} = require("../../helpers/users.middlewares");
 
 const router = require("express").Router();
 
@@ -60,7 +57,7 @@ router.get("/category/:categoryId", async (req, res) => {
 });
 
 // POST /products/new
-router.post("/new", async (req, res) => {
+router.post("/new",checkToken, checkAdminRole, async (req, res) => {
   try {
     const [result] = await ProductModel.insertNewProduct(req.body);
     const [products] = await ProductModel.getProductById(result.insertId);
@@ -71,20 +68,8 @@ router.post("/new", async (req, res) => {
 });
 
 //PUT /products/update/PRODUCTID
-router.put(
-  "/update/:productId",
-  checkProduct,
-  checkToken,
-  checkAdminRole,
-  async (req, res) => {
-    //updateProduct
-
-    console.log(req.headers);
-    console.log(req.user);
-    const {
-      params: { productId },
-      body,
-    } = req;
+router.put("/update/:productId",checkProduct,checkToken,checkAdminRole, async (req, res) => {
+    const {params: { productId }, body} = req;
     try {
       await ProductModel.updateProduct(productId, body);
       const [products] = await ProductModel.getProductById(productId);
@@ -96,7 +81,7 @@ router.put(
 );
 
 //DELETE /products/PRODUCTID
-router.delete("/:productId", checkProduct, async (req, res) => {
+router.delete("/:productId", checkProduct,checkToken, checkAdminRole, async (req, res) => {
   const { productId } = req.params;
   try {
     await ProductModel.deleteProduct(productId);
