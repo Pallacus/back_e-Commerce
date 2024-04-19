@@ -31,8 +31,8 @@ POST {{host}}/api/users/login
 Content-Type: application/json
 
 {
-  "email": "otro@gmail.com",
-  "password": "hola123"
+  "email": "otao@gmail.com",
+  "password": "123456"
 }
 
 ###

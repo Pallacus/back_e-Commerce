@@ -1,4 +1,4 @@
-const { getAllComments, insertNewComment, getCommentById, updateComment, deleteComment } = require('../../models/comments.model');
+const { getAllComments, insertNewComment, getCommentById, updateComment, deleteComment, getCommentsByProductId } = require('../../models/comments.model');
 const { checkComment } = require('../../helpers/comment.middlewares');
 
 const router = require("express").Router();
@@ -12,6 +12,16 @@ router.get("/", async (req, res) => {
     res.json({ fatal: error.message });
   }
 });
+
+router.get('/:productId', async (req,res) =>{
+  try {
+    const [result] = await getCommentsByProductId(req.params.productId);
+    res.json(result);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+});
+
 
 // POST /comments/new
 router.post("/new", async (req, res) => {
