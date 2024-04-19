@@ -1,6 +1,15 @@
 const getAllComments = () => {
     return db.query('SELECT * FROM comments');
 }
+
+const getCommentsByProductId = (products_id) => {
+    return db.query(`
+    SELECT c.*, u.name AS author, u.last_name AS author_last_name
+    FROM e_commerce.comments AS c
+    JOIN e_commerce.users AS u ON c.users_id = u.id
+    WHERE c.products_id = ?;`, [products_id]);
+}
+
 const insertNewComment = ({ text, users_id, products_id }) => {
     return db.query(`
     INSERT INTO comments(text, users_id, products_id) VALUES(?, ?, ?);`,
@@ -25,4 +34,4 @@ WHERE comments.id = ?`,
         [commentId]);
 }
 
-module.exports = { getAllComments, insertNewComment, getCommentById, updateComment, deleteComment };
+module.exports = { getAllComments, getCommentsByProductId, insertNewComment, getCommentById, updateComment, deleteComment };

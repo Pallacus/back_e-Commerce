@@ -3,37 +3,51 @@ const getAllProducts = () => {
 };
 
 const getAllProductsPaginated = (page, limit) => {
-    page = Number(page);
-    limit = Number(limit);
-    
+  page = Number(page);
+  limit = Number(limit);
+
   return db.query(`SELECT * FROM products LIMIT ? OFFSET ?`, [
     limit,
-    ((page - 1) * limit)
+    (page - 1) * limit,
   ]);
 };
 
-const getAllProductsFeatured = () => {
+const getAllFeaturedProducts = () => {
   return db.query(`SELECT * FROM products WHERE featured = 1`);
-}
+};
 
 const getProductById = (productId) => {
   return db.query("SELECT * FROM products WHERE id = ? ", [productId]);
 };
 
 const getProductByCategoryId = (categoryId) => {
-  return db.query("SELECT * FROM products WHERE categories_id = ? ", [categoryId]);
+  return db.query("SELECT * FROM products WHERE categories_id = ? ", [
+    categoryId,
+  ]);
 };
 
-const insertNewProduct = ({ title, description, price, image, featured, categories_id }) => {
-    return db.query(`
+const insertNewProduct = ({
+  title,
+  description,
+  price,
+  image,
+  featured,
+  categories_id,
+}) => {
+  return db.query(
+    `
     INSERT INTO products(title, description, price, image, featured, categories_id)
     VALUES(?, ?, ?, ?, ?, ?);`,
     [title, description, price, image, featured, categories_id]
   );
 };
 
-const updateProduct = (productId, { title, description, price, image, featured, categories_id }) => {
-    return db.query(`
+const updateProduct = (
+  productId,
+  { title, description, price, image, featured, categories_id }
+) => {
+  return db.query(
+    `
     UPDATE products 
     SET title = ?, description = ?, price = ?, image = ?, featured = ?, categories_id = ?
     WHERE id = ?;`,
@@ -42,7 +56,8 @@ const updateProduct = (productId, { title, description, price, image, featured, 
 };
 
 const deleteProduct = (productId) => {
-    return db.query(`
+  return db.query(
+    `
     DELETE FROM products
     WHERE products.id =?`,
     [productId]
@@ -56,5 +71,5 @@ module.exports = {
   deleteProduct,
   getAllProductsPaginated,
   getProductByCategoryId,
-  getAllProductsFeatured
+  getAllFeaturedProducts,
 };

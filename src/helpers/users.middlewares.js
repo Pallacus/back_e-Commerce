@@ -19,7 +19,9 @@ const checkUser = async (req, res, next) => {
 
 const checkToken = async (req, res, next) => {
   if (!req.headers.authorization) {
-    res.status(401).json({ fatal: "Debes incluir el token de autenticación" });
+    return res
+      .status(401)
+      .json({ fatal: "Debes incluir el token de autenticación" });
   }
   const token = req.headers.authorization;
 
@@ -35,8 +37,8 @@ const checkToken = async (req, res, next) => {
   next();
 };
 
-const checkAdminRol = (req, res, next) => {
-  if (req.user.rol !== "admin") {
+const checkAdminRole = (req, res, next) => {
+  if (req.user.role !== "admin") {
     return res
       .status(401)
       .json({ fatal: "No tienes permisos de administrador" });
@@ -44,8 +46,8 @@ const checkAdminRol = (req, res, next) => {
   next();
 };
 
-const checkUserRol = (req, res, next) => {
-  if (req.user.rol !== "user") {
+const checkUserRole = (req, res, next) => {
+  if (req.user.role !== "user") {
     return res
       .status(401)
       .json({ fatal: "No tienes permisos de usuario, debes registrarte" });
@@ -56,6 +58,6 @@ const checkUserRol = (req, res, next) => {
 module.exports = {
   checkUser,
   checkToken,
-  checkAdminRol,
-  checkUserRol,
+  checkAdminRole,
+  checkUserRole,
 };

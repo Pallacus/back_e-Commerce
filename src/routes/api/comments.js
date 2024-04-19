@@ -1,12 +1,28 @@
-const { getAllComments, insertNewComment, getCommentById, updateComment, deleteComment } = require('../../models/comments.model');
-const { checkComment } = require('../../helpers/comment.middlewares');
+const CommentsModel = require("../../models/comments.model");
+const { checkComment } = require("../../helpers/comment.middlewares");
+const {
+  checkUserRole,
+  checkToken,
+  checkAdminRole,
+} = require("../../helpers/users.middlewares");
 
 const router = require("express").Router();
 
 // GET /comments
 router.get("/", async (req, res) => {
   try {
-    const [result] = await getAllComments();
+    const [result] = await CommentsModel.getAllComments();
+    res.json(result);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+});
+
+router.get("/:productId", async (req, res) => {
+  try {
+    const [result] = await CommentsModel.getCommentsByProductId(
+      req.params.productId
+    );
     res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
@@ -14,22 +30,28 @@ router.get("/", async (req, res) => {
 });
 
 // POST /comments/new
-router.post("/new", async (req, res) => {
+router.post("/new", checkToken, checkUserRole, async (req, res) => {
   try {
-    const [result] = await insertNewComment(req.body)
-    const [comments] = await getCommentById(result.insertId);
+    const [result] = await CommentsModel.insertNewComment(req.body);
+    const [comments] = await CommentsModel.getCommentById(result.insertId);
     res.json(comments[0]);
   } catch (error) {
     res.json({ fatal: error.message });
   }
 });
 
+/**
+ * TODO: ValorAR SI NECESITAMOS ESTAS FUNCIONES
+ */
 //PUT /comments/update/COMMENTID
 router.put("/update/:commentId", checkComment, async (req, res) => {
-  const { params: { commentId }, body } = req;
+  const {
+    params: { commentId },
+    body,
+  } = req;
   try {
-    await updateComment(commentId, body);
-    const [comments] = await getCommentById(commentId);
+    await CommentsModel.updateComment(commentId, body);
+    const [comments] = await CommentsModel.getCommentById(commentId);
     res.json(comments[0]);
   } catch (error) {
     res.json({ fatal: error.message });
@@ -40,7 +62,7 @@ router.put("/update/:commentId", checkComment, async (req, res) => {
 router.delete("/:commentId", checkComment, async (req, res) => {
   const { commentId } = req.params;
   try {
-    await deleteComment(commentId);
+    await CommentsModel.deleteComment(commentId);
     res.json(req.product);
   } catch (error) {
     res.json({ fatal: error.message });

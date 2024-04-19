@@ -1,21 +1,13 @@
-const {
-  getAllProducts,
-  getProductById,
-  insertNewProduct,
-  updateProduct,
-  deleteProduct,
-  getAllProductsPaginated,
-  getProductByCategoryId,
-  getAllProductsFeatured,
-} = require("../../models/products.model");
+const ProductModel = require("../../models/products.model");
 const { checkProduct } = require("../../helpers/product.middlewares");
+const {checkToken, checkAdminRole} = require("../../helpers/users.middlewares");
 
 const router = require("express").Router();
 
 // GET /products
 router.get("/", async (req, res) => {
   try {
-    const [result] = await getAllProducts();
+    const [result] = await ProductModel.getAllProducts();
     res.json(result);
   } catch (error) {
     res.json({ Fatal: error.message });
@@ -25,7 +17,7 @@ router.get("/", async (req, res) => {
 // GET /products/featured
 router.get("/featured", async (req, res) => {
   try {
-    const [result] = await getAllProductsFeatured();
+    const [result] = await ProductModel.getAllFeaturedProducts();
     res.json(result);
   } catch (error) {
     res.json({ Fatal: error.message });
@@ -36,7 +28,7 @@ router.get("/featured", async (req, res) => {
 router.get("/paginated", async (req, res) => {
   let { page = 1, limit = 16 } = req.query;
   try {
-    const [products] = await getAllProductsPaginated(page, limit);
+    const [products] = await ProductModel.getAllProductsPaginated(page, limit);
     res.json(products);
   } catch (error) {
     res.json({ fatal: error.message });
@@ -55,7 +47,9 @@ router.get("/:productId", checkProduct, async (req, res) => {
 // GET /products/category/CATEGORYID
 router.get("/category/:categoryId", async (req, res) => {
   try {
-    const [result] = await getProductByCategoryId(req.params.categoryId);
+    const [result] = await ProductModel.getProductByCategoryId(
+      req.params.categoryId
+    );
     res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
@@ -63,10 +57,10 @@ router.get("/category/:categoryId", async (req, res) => {
 });
 
 // POST /products/new
-router.post("/new", async (req, res) => {
+router.post("/new",checkToken, checkAdminRole, async (req, res) => {
   try {
-    const [result] = await insertNewProduct(req.body);
-    const [products] = await getProductById(result.insertId);
+    const [result] = await ProductModel.insertNewProduct(req.body);
+    const [products] = await ProductModel.getProductById(result.insertId);
     res.json(products[0]);
   } catch (error) {
     res.json({ fatal: error.message });
@@ -74,26 +68,23 @@ router.post("/new", async (req, res) => {
 });
 
 //PUT /products/update/PRODUCTID
-router.put("/update/:productId", checkProduct, async (req, res) => {
-  //updateProduct
-  const {
-    params: { productId },
-    body,
-  } = req;
-  try {
-    await updateProduct(productId, body);
-    const [products] = await getProductById(productId);
-    res.json(products[0]);
-  } catch (error) {
-    res.json({ fatal: error.message });
+router.put("/update/:productId",checkProduct,checkToken,checkAdminRole, async (req, res) => {
+    const {params: { productId }, body} = req;
+    try {
+      await ProductModel.updateProduct(productId, body);
+      const [products] = await ProductModel.getProductById(productId);
+      res.json(products[0]);
+    } catch (error) {
+      res.json({ fatal: error.message });
+    }
   }
-});
+);
 
 //DELETE /products/PRODUCTID
-router.delete("/:productId", checkProduct, async (req, res) => {
+router.delete("/:productId", checkProduct,checkToken, checkAdminRole, async (req, res) => {
   const { productId } = req.params;
   try {
-    await deleteProduct(productId);
+    await ProductModel.deleteProduct(productId);
     res.json(req.product);
   } catch (error) {
     res.json({ fatal: error.message });
