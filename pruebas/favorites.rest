@@ -5,6 +5,7 @@
 #################### FAVORITES #####################
 
 GET {{host}}/api/favorites
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzEzNTEzMTQ3fQ.R1ZLcc1gvIGTf6gwFBf_HJVPFwRd4ds1B-fODDXI8Pc
 
 ###
 GET {{host}}/api/favorites/5
@@ -16,6 +17,7 @@ GET {{host}}/api/favorites/5/paginated?page=1&limit=16
 ###
 POST {{host}}/api/favorites/new
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzEzNTEzMTQ3fQ.R1ZLcc1gvIGTf6gwFBf_HJVPFwRd4ds1B-fODDXI8Pc
 
 {
     "users_id": "5", 
@@ -33,3 +35,5 @@ Content-Type: application/json
 
 ###
 DELETE {{host}}/api/favorites/8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzEzNTEzMTQ3fQ.R1ZLcc1gvIGTf6gwFBf_HJVPFwRd4ds1B-fODDXI8Pc
+

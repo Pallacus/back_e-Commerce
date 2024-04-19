@@ -19,7 +19,9 @@ const checkUser = async (req, res, next) => {
 
 const checkToken = async (req, res, next) => {
   if (!req.headers.authorization) {
-    res.status(401).json({ fatal: "Debes incluir el token de autenticación" });
+    return res
+      .status(401)
+      .json({ fatal: "Debes incluir el token de autenticación" });
   }
   const token = req.headers.authorization;
 
