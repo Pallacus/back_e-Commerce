@@ -11,6 +11,11 @@ GET {{host}}/api/users
 GET {{host}}/api/users/7
 
 ###
+// Devuelve el objeto usuario que coincide con el email
+GET {{host}}/api/users/email/ashley@example.com
+
+
+###
 // Devuelve el usuario que ha sido registrado
 POST {{host}}/api/users/new
 Content-Type: application/json

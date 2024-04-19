@@ -15,14 +15,12 @@ router.get("/", async (req, res) => {
   }
 });
 
-//TODO perfil usuario
-/**
- * TODO: Si paso por checkToken tengo los datos del usuario, por si queremos mostrar una página de perfil de usuario
- */
-// GET /users/profile
-router.get("/profile", async (req, res) => {
+
+// GET /users/email/:emailUser
+router.get("/email/:emailUser", async (req, res) => {
   try {
-    res.json(req.user);
+    const [[user]] = await UsersModel.selectUserByEmail(req.params.emailUser);
+    res.json(user)
   } catch (error) {
     res.json({ fatal: error.message });
   }
