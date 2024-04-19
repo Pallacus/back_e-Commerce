@@ -6,6 +6,10 @@
 
 GET {{host}}/api/comments
 
+###
+GET {{host}}/api/comments/3
+
+
 
 ### 1 azul,  4 beige
 POST {{host}}/api/comments/new
