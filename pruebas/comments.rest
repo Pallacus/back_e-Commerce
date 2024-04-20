@@ -7,14 +7,15 @@
 GET {{host}}/api/comments
 
 ### getById
-GET {{host}}/api/comments/3
+GET {{host}}/api/comments/1
 
 ### getByProductId
 GET {{host}}/api/comments/product/3
 
-### 1 azul,  4 beige
+### insertNewComment
 POST {{host}}/api/comments/new
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzEzNTEzMTQ3fQ.R1ZLcc1gvIGTf6gwFBf_HJVPFwRd4ds1B-fODDXI8Pc
 
 {
     "text": "Me gustan los colores vibrantes", 
@@ -22,8 +23,8 @@ Content-Type: application/json
     "products_id": "7"
 }
 
-###
-PUT {{host}}/api/comments/update/6
+### updateComment
+PUT {{host}}/api/comments/update/14
 Content-Type: application/json
 
 {
@@ -32,5 +33,5 @@ Content-Type: application/json
     "products_id": "9"
 }
 
-###
-DELETE {{host}}/api/comments/3
+### deleteComment
+DELETE {{host}}/api/comments/14

@@ -6,9 +6,7 @@
 #################### PRODUCTS #####################
 
 GET {{host}}/api/products
-# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTMzNDcwNzd9.sxXMneMrsoF3bkezDcRCjtW3Hd-yrJXqzyIiAVhlBBg
 
-###
 ###
 GET {{host}}/api/products/featured
 
@@ -20,15 +18,13 @@ GET {{host}}/api/products/8
 GET {{host}}/api/products/paginated?page=1&limit=16
 
 ###
-GET {{host}}/api/products/paginated?page=1&limit=16
-
-###
 GET {{host}}/api/products/category/4
 
 
 ###
 POST {{host}}/api/products/new
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNTExOTUxfQ.BEF2U2p-tL6-BxaxiiI5R0uDgMByYswoNgvwRuCKwgk
 
 {
     "title": "Gorra amarilla", 
@@ -41,8 +37,9 @@ Content-Type: application/json
 
 
 ###
-PUT {{host}}/api/products/update/4
+PUT {{host}}/api/products/update/21
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNTExOTUxfQ.BEF2U2p-tL6-BxaxiiI5R0uDgMByYswoNgvwRuCKwgk
 
 {
     "title": "Gorra gris", 
@@ -55,6 +52,7 @@ Content-Type: application/json
 
 
 ###
-DELETE {{host}}/api/products/4
+DELETE {{host}}/api/products/21
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNTExOTUxfQ.BEF2U2p-tL6-BxaxiiI5R0uDgMByYswoNgvwRuCKwgk
 
 

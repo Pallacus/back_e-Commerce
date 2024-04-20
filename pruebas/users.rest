@@ -11,6 +11,11 @@ GET {{host}}/api/users
 GET {{host}}/api/users/7
 
 ###
+// Devuelve el objeto usuario que coincide con el email
+GET {{host}}/api/users/email/ashley@example.com
+
+
+###
 // Devuelve el usuario que ha sido registrado
 POST {{host}}/api/users/new
 Content-Type: application/json
@@ -27,15 +32,26 @@ Content-Type: application/json
 
 ###
 // Devuelve un mensaje de si hay algún error o el login es correcto.
+//LOGIN ROLE USER
 POST {{host}}/api/users/login
 Content-Type: application/json
 
 {
-  "email": "john@example.com",
+  "email": "ashley@example.com",
+  "password": "123456"
+}
+
+
+###
+//LOGIN ADMIN
+POST {{host}}/api/users/login
+Content-Type: application/json
+
+{
+  "email": "jennifer@example.com",
   "password": "12345"
 }
 
-//  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTM0MzU1NTB9.mFRfkSoveNRGdQpvUHe_QZU64i4M8tGnxhwQJlof168
 
 ###
 PUT {{host}}/api/users/update/3
