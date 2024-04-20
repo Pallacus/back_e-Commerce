@@ -8,6 +8,9 @@
 GET {{host}}/api/categories
 
 ###
+GET {{host}}/api/categories/3
+
+###
 POST {{host}}/api/categories/new
 Content-Type: application/json
 

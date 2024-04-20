@@ -1,4 +1,4 @@
-const { getAllComments, insertNewComment, getCommentById, updateComment, deleteComment } = require('../../models/comments.model');
+const { getAllComments, insertNewComment, getCommentById, updateComment, deleteComment, getCommentsByProductId } = require('../../models/comments.model');
 const { checkComment } = require('../../helpers/comment.middlewares');
 
 const router = require("express").Router();
@@ -7,6 +7,17 @@ const router = require("express").Router();
 router.get("/", async (req, res) => {
   try {
     const [result] = await getAllComments();
+    res.json(result);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+});
+
+// GET /comments/product/PRODUCTID
+router.get('/product/:productId', async (req, res) => {
+  const { params: { productId } } = req;
+  try {
+    const [result] = await getCommentsByProductId(productId);
     res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });

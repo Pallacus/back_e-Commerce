@@ -12,6 +12,12 @@ const getCommentById = (commentId) => {
     WHERE comments.id = ?`,
         [commentId]);
 }
+const getCommentsByProductId = (productId) => {
+    return db.query(`
+    SELECT * FROM comments
+    WHERE products_id = ?;`,
+        [productId]);
+}
 const updateComment = (commentId, { text, users_id, products_id }) => {
     return db.query(`
     UPDATE comments
@@ -25,4 +31,4 @@ WHERE comments.id = ?`,
         [commentId]);
 }
 
-module.exports = { getAllComments, insertNewComment, getCommentById, updateComment, deleteComment };
+module.exports = { getAllComments, insertNewComment, getCommentById, getCommentsByProductId, updateComment, deleteComment };

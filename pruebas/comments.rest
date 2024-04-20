@@ -1,11 +1,16 @@
 @port = 3000
 @host = http://localhost:{{port}}
 
-
 #################### COMMENTS #####################
 
+### getAll
 GET {{host}}/api/comments
 
+### getById
+GET {{host}}/api/comments/3
+
+### getByProductId
+GET {{host}}/api/comments/product/3
 
 ### 1 azul,  4 beige
 POST {{host}}/api/comments/new
@@ -28,4 +33,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{host}}/api/comments/6
+DELETE {{host}}/api/comments/3

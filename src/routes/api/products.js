@@ -9,6 +9,7 @@ const {
   getAllProductsFeatured,
 } = require("../../models/products.model");
 const { checkProduct } = require("../../helpers/product.middlewares");
+const { checkToken } = require('../../helpers/users.middlewares');
 
 const router = require("express").Router();
 
@@ -74,7 +75,7 @@ router.post("/new", async (req, res) => {
 });
 
 //PUT /products/update/PRODUCTID
-router.put("/update/:productId", checkProduct, async (req, res) => {
+router.put("/update/:productId", checkProduct, checkToken, async (req, res) => {
   //updateProduct
   const {
     params: { productId },

@@ -14,7 +14,7 @@ GET {{host}}/api/products/featured
 
 
 ###
-GET {{host}}/api/products/1
+GET {{host}}/api/products/8
 
 ###
 GET {{host}}/api/products/paginated?page=1&limit=16

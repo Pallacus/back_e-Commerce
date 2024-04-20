@@ -12,6 +12,15 @@ router.get("/", async (req, res) => {
     res.json({ fatal: error.message });
   }
 });
+// GET /categories/CATEGORYID
+router.get('/:categoryId', async (req, res) => {
+  try {
+    const [categories] = await getCategoryById(req.params.categoryId);
+    res.json(categories[0]);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+});
 
 // POST /categories/new
 router.post("/new", async (req, res) => {

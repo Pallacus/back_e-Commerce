@@ -31,9 +31,11 @@ POST {{host}}/api/users/login
 Content-Type: application/json
 
 {
-  "email": "otro@gmail.com",
-  "password": "hola123"
+  "email": "john@example.com",
+  "password": "12345"
 }
+
+//  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTM0MzU1NTB9.mFRfkSoveNRGdQpvUHe_QZU64i4M8tGnxhwQJlof168
 
 ###
 PUT {{host}}/api/users/update/3
