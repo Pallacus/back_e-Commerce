@@ -23,8 +23,8 @@ GET {{host}}/api/products/category/4
 
 ###
 POST {{host}}/api/products/new
-Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNTExOTUxfQ.BEF2U2p-tL6-BxaxiiI5R0uDgMByYswoNgvwRuCKwgk
+Content-Type: application/json
 
 {
     "title": "Gorra amarilla", 

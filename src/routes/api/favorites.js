@@ -1,7 +1,18 @@
 
-const { getAllFavorites, getFavoriteById, getFavoritesByUser, getFavoritesPaginated, addFavorite, updateFavoriteById, deleteFavorite } = require('../../models/favorites.model')
+const { getAllFavorites, getFavoriteById, getFavoritesByUser, getFavoritesPaginated, addFavorite, updateFavoriteById, deleteFavorite, getFavoritesByUserAndProduct } = require('../../models/favorites.model')
 
 const router = require('express').Router();
+
+//  GET /favorites/pepito?user=8&product9
+router.get("/params", async (req, res) => {
+  const { user_id, product_id } = req.query; // Son strings
+  try {
+    const [favorites] = await getFavoritesByUserAndProduct(user_id, product_id);
+    res.json(favorites[0]);
+  } catch (error) {
+    res.json({ Fatal: error.message });
+  }
+});
 
 // GET /favorites
 router.get("/", async (req, res) => {

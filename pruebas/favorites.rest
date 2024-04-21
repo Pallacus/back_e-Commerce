@@ -5,7 +5,7 @@
 #################### FAVORITES #####################
 
 GET {{host}}/api/favorites
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzEzNTEzMTQ3fQ.R1ZLcc1gvIGTf6gwFBf_HJVPFwRd4ds1B-fODDXI8Pc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNzAyMTE5fQ.bOlIPPpiGsfXzsHxYKCgRKE8kq7VIyw1-6xk1-0UHfw
 
 ###
 GET {{host}}/api/favorites/5
@@ -13,15 +13,18 @@ GET {{host}}/api/favorites/5
 ###
 GET {{host}}/api/favorites/5/paginated?page=1&limit=16
 
+### getByUserIdAndProductId /api/product/pepito?user=8&product=9 : user="8", product="9"
+GET {{host}}/api/favorites/params?user_id=8&product_id=9
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNzAyMTE5fQ.bOlIPPpiGsfXzsHxYKCgRKE8kq7VIyw1-6xk1-0UHfw
 
 ###
 POST {{host}}/api/favorites/new
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzEzNTEzMTQ3fQ.R1ZLcc1gvIGTf6gwFBf_HJVPFwRd4ds1B-fODDXI8Pc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNzAyMTE5fQ.bOlIPPpiGsfXzsHxYKCgRKE8kq7VIyw1-6xk1-0UHfw
 
 {
-    "users_id": "5", 
-    "products_id": "7"
+    "users_id": "7", 
+    "products_id": "5"
 }
 
 ###
@@ -35,5 +38,5 @@ Content-Type: application/json
 
 ###
 DELETE {{host}}/api/favorites/8
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzEzNTEzMTQ3fQ.R1ZLcc1gvIGTf6gwFBf_HJVPFwRd4ds1B-fODDXI8Pc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNzAyMTE5fQ.bOlIPPpiGsfXzsHxYKCgRKE8kq7VIyw1-6xk1-0UHfw
 
