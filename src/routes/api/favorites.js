@@ -72,7 +72,7 @@ router.put("/update/:favoriteId", async (req, res) => {
 
 //DELETE /favorites/FAVORITEID
 router.delete("/:favoriteId", async (req, res) => {
-  let favoriteId = req.params.favoriteId;
+  let favoriteId = Number(req.params.favoriteId);
   try {
     const [favorites] = await getFavoriteById(favoriteId);
     await deleteFavorite(favoriteId);

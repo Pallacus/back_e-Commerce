@@ -23,8 +23,8 @@ Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNzAyMTE5fQ.bOlIPPpiGsfXzsHxYKCgRKE8kq7VIyw1-6xk1-0UHfw
 
 {
-    "users_id": "7", 
-    "products_id": "5"
+    "users_id": "8", 
+    "products_id": "9"
 }
 
 ###
@@ -37,6 +37,6 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{host}}/api/favorites/8
+DELETE {{host}}/api/favorites/13
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNzAyMTE5fQ.bOlIPPpiGsfXzsHxYKCgRKE8kq7VIyw1-6xk1-0UHfw
 
