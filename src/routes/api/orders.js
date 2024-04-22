@@ -1,9 +1,20 @@
 const router = require("express").Router();
 const OrdersModel = require("../../models/orders.model");
+
 // GET /orders
 router.get("/", async (req, res) => {
   try {
     const [result] = await OrdersModel.selectAllOrders();
+    res.json(result);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+});
+
+// GET withNames /orders/names
+router.get('/names', async (req, res) => {
+  try {
+    const [result] = await OrdersModel.selectAllWithNames();
     res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
