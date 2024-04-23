@@ -133,7 +133,7 @@ DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` int AUTO_INCREMENT NOT NULL,
   `title` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` LONGTEXT COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` float NOT NULL,
   `image` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `featured` tinyint NOT NULL DEFAULT '0',
