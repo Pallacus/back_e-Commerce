@@ -23,7 +23,7 @@ GET {{host}}/api/products/category/4
 
 ###
 POST {{host}}/api/products/new
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNTExOTUxfQ.BEF2U2p-tL6-BxaxiiI5R0uDgMByYswoNgvwRuCKwgk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzODE3NDI3fQ.eFp90AxslQ6G-jIfL2sprH58QZLIIMSgRprCUDhBMKY
 Content-Type: application/json
 
 {

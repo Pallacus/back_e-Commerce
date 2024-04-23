@@ -6,6 +6,9 @@
 // Devuelve un array de pedidos 
 GET {{host}}/api/orders
 
+### getWithNames
+GET {{host}}/api/orders/names
+
 ###
 //Devuelve el pedido que coincide con el código de pedido
 GET {{host}}/api/orders/ORDER001
@@ -26,4 +29,5 @@ Content-Type: application/json
 PUT {{host}}/api/orders/update/:orderId
 
 ###
-DELETE {{host}}/api/orders/:orderId
+DELETE {{host}}/api/orders/24
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzODE2NDg1fQ.d-rNW2mm1HV8EHvSEhbzZtjhueM6Qt9yFYOuozCofHI
