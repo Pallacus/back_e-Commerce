@@ -35,7 +35,6 @@ Content-Type: application/json
     "categories_id": "4"
 }
 
-
 ###
 PUT {{host}}/api/products/update/5
 Content-Type: application/json
@@ -44,7 +43,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWlu
 {
     "title": "Gorra gris", 
     "description": "Gorra gris de algodón", 
-    "price": "32.90", 
+    "price": "33.90", 
     "image": "http://ecommerce.com/5932659.jpg", 
     "featured": "0", 
     "categories_id": "4"

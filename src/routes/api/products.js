@@ -68,15 +68,6 @@ router.post("/new", checkToken, checkAdminRole, async (req, res) => {
   }
 });
 
-
-
-
-
-
-
-
-
-
 //  selectUsersByFavoriteProduct
 
 //PUT /products/update/PRODUCTID
@@ -101,18 +92,6 @@ router.put("/update/:productId", checkProduct, checkToken, checkAdminRole, async
   }
 }
 );
-
-
-
-
-
-
-
-
-
-
-
-
 
 //DELETE /products/PRODUCTID
 router.delete("/:productId", checkProduct, checkToken, checkAdminRole, async (req, res) => {

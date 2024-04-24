@@ -25,37 +25,6 @@ router.get("/email/:emailUser", async (req, res) => {
   }
 });
 
-
-
-
-
-
-
-
-
-
-/* 
-// GET /users/favorite/:product_id
-router.get('/favorite/:product_id', async (req, res) => {
-  try {
-    console.log('hola');
-    const users = await UsersModel.selectUsersByFavoriteProduct(req.params.product_id);
-    return users;
-  } catch (error) {
-    res.json(error.message);
-  }
-});
- */
-
-
-
-
-
-
-
-
-
-
 // GET /users/USERID
 router.get("/:userId", checkUser, async (req, res) => {
   try {
