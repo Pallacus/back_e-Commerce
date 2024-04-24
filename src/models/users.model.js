@@ -10,6 +10,27 @@ const selectUserByEmail = (email) => {
   return db.query("SELECT * FROM users WHERE email = ?", email);
 }
 
+
+
+
+
+
+
+const selectUsersByFavoriteProduct = (product_id) => {
+  return db.query(`SELECT u.* 
+FROM favorites f 
+JOIN users u ON f.users_id = u.id 
+WHERE f.products_id = ?;`,
+    [product_id]);
+}
+
+
+
+
+
+
+
+
 const insertUser = ({
   name,
   last_name,
@@ -42,6 +63,7 @@ const deleteUserById = (userId) => {
 module.exports = {
   selectAllUsers,
   selectUserById,
+  selectUsersByFavoriteProduct,
   insertUser,
   updateUser,
   deleteUserById,
