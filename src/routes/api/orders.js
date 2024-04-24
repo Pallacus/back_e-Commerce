@@ -1,10 +1,6 @@
 const router = require("express").Router();
 const OrdersModel = require("../../models/orders.model");
-<<<<<<< HEAD
-const { checkToken, checkAdminRole, checkUser } = require("../../helpers/users.middlewares");
-=======
 const { checkToken, checkAdminRole, } = require("../../helpers/users.middlewares");
->>>>>>> Feature-getUsersByFavorite
 const dayjs = require('dayjs');
 
 // GET /orders
@@ -88,11 +84,7 @@ router.post('/cart', checkToken, async (req, res) => {
     return res.json(orderCode);
   }
 
-<<<<<<< HEAD
-  res.json('Error', orderCode, ordersInserted, ordersFailed);
-=======
   return res.json('Error', orderCode, ordersInserted, ordersFailed);
->>>>>>> Feature-getUsersByFavorite
 
 });
 
