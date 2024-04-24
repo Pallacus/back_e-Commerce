@@ -15,6 +15,20 @@ GET {{host}}/api/users/7
 GET {{host}}/api/users/email/ashley@example.com
 
 
+
+
+
+
+
+###
+// GET /users/favorite/:product_id
+GET {{host}}/api/users/favorite/5
+
+
+
+
+
+
 ###
 // Devuelve el usuario que ha sido registrado
 POST {{host}}/api/users/new

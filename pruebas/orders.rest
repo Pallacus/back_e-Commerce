@@ -32,6 +32,7 @@ PUT {{host}}/api/orders/update/:orderId
 DELETE {{host}}/api/orders/24
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzODE2NDg1fQ.d-rNW2mm1HV8EHvSEhbzZtjhueM6Qt9yFYOuozCofHI
 
+<<<<<<< HEAD
 
 
 
@@ -46,6 +47,11 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWlu
 ##########     NEW CART_ORDER     ##########
 
 // Devuelve la nueva compra creada
+=======
+##########     NEW CART_ORDER     ##########
+
+// Devuelve el nuevo orderCodes
+>>>>>>> Feature-getUsersByFavorite
 POST {{host}}/api/orders/cart
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzODE2NDg1fQ.d-rNW2mm1HV8EHvSEhbzZtjhueM6Qt9yFYOuozCofHI
 Content-Type: application/json
