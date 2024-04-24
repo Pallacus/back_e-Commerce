@@ -18,6 +18,7 @@ const selectAllWithNames = () => {
 }
 
 const insertOrder = ({ code, quantity, users_id, products_id }) => {
+
   return db.query(
     "INSERT INTO orders (code, quantity,users_id, products_id) VALUES (?,?,?,?)",
     [code, quantity, users_id, products_id]

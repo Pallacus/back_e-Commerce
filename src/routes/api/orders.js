@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const OrdersModel = require("../../models/orders.model");
-const { checkToken, checkAdminRole } = require("../../helpers/users.middlewares");
+const { checkToken, checkAdminRole, checkUser } = require("../../helpers/users.middlewares");
+const dayjs = require('dayjs');
 
 // GET /orders
 router.get("/", async (req, res) => {
@@ -47,6 +48,47 @@ router.post("/new", async (req, res) => {
   }
 });
 
+//  POST /orders/cart
+router.post('/cart', checkToken, async (req, res) => {
+
+  const arrCart = req.body;
+  const orderCode = ('ORD' + dayjs().unix());
+
+  const ordersInserted = [];
+  const ordersFailed = [];
+
+  for (const line of arrCart) {
+
+    const newOrder = {
+      code: orderCode,
+      quantity: line.quantity,
+      users_id: req.user.id,
+      products_id: line.product.id
+    }
+
+    try {
+
+      const [order] = await OrdersModel.insertOrder(newOrder);
+
+      const [[result]] = await OrdersModel.selectOrderById(order.insertId);
+
+      ordersInserted.push(newOrder);
+
+    } catch (error) {
+      ordersFailed.push(newOrder)
+    }
+
+  }
+
+  if (ordersFailed.length === 0) {
+    res.json(orderCode);
+  }
+
+  res.json('Error', orderCode, ordersInserted, ordersFailed);
+
+});
+
+
 //TODO borrar pedidos
 /**
  * TODO TERMINAR BORRADO DE PEDIDOS
@@ -57,7 +99,6 @@ router.post("/new", async (req, res) => {
 router.delete("/:order_id", checkToken, checkAdminRole, async (req, res) => {
   try {
     const [order] = await OrdersModel.deleteOrderById(req.params.order_id);
-    console.log(order);
     res.json(order);
   } catch (error) {
     res.json({ fatal: error.message });
