@@ -71,6 +71,7 @@ router.post("/new", checkToken, checkAdminRole, async (req, res) => {
 router.put("/update/:productId", checkProduct, checkToken, checkAdminRole, async (req, res) => {
   const { params: { productId }, body } = req;
   try {
+
     await ProductModel.updateProduct(productId, body);
     const [products] = await ProductModel.getProductById(productId);
     res.json(products[0]);

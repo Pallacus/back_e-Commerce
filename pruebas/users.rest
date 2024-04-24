@@ -70,3 +70,9 @@ Content-Type: application/json
 ###
 DELETE {{host}}/api/users/1
 
+###
+###
+POST {{host}}/api/emails/
+
+
+
