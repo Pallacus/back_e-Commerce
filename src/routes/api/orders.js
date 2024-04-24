@@ -81,7 +81,7 @@ router.post('/cart', checkToken, async (req, res) => {
   }
 
   if (ordersFailed.length === 0) {
-    res.json(orderCode);
+    return res.json(orderCode);
   }
 
   res.json('Error', orderCode, ordersInserted, ordersFailed);
