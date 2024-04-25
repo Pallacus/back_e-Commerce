@@ -15,7 +15,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-
 // GET /users/email/:emailUser
 router.get("/email/:emailUser", async (req, res) => {
   try {

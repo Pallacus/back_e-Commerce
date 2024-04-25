@@ -8,7 +8,7 @@ const checkProduct = async (req, res, next) => {
             return res.json({ fatal: `No existe ningún producto con este id.` });
         }
         req.product = products[0];
-        next()
+        next();
     } catch (error) {
         res.json({ fatal: error.message });
     }

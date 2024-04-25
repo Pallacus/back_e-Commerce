@@ -77,16 +77,58 @@ ALTER TABLE `comments` AUTO_INCREMENT = 1;
 
 -- Inserción de datos para la tabla `comments`
 INSERT INTO `comments`  (id, `text`, users_id, products_id) VALUES
-(1, 'Great quality and fast delivery!', 1, 1),
-(2, 'Excellent customer service!', 1, 2),
-(3, 'Love the design and fit.', 2, 3),
-(4, 'Very comfortable to wear all day.', 3, 4),
-(5, 'Amazing price for such good quality.', 5, 5),
-(6, 'Looks even better in person!', 4, 6),
-(7, 'Highly recommended!', 5, 6),
-(8, 'Really satisfied with my purchase.', 1, 1),
-(9, 'Exactly what I was looking for.', 3, 3),
-(10, 'Great value for money.', 4, 4);
+(1, 'Great quality and fast delivery, Great quality and fast delivery! really impressed with the quality of the product and the speed of the delivery service!', 1, 1),
+(2, 'Excellent customer service! really impressed with the quality of the product and the speed of the delivery service!', 1, 1),
+(3, 'Love the design and fit. really impressed with the quality of the product and the speed of the delivery service!' , 2, 1),
+(4, 'Very comfortable to wear all day. really impressed with the quality of the product and the speed of the delivery service!', 3, 2),
+(5, 'Amazing price for such good quality. really impressed with the quality of the product and the speed of the delivery service!', 5, 2),
+(6, 'Looks even better in person! really impressed with the quality of the product and the speed of the delivery service!', 4, 2),
+(7, 'Highly recommended! really impressed with the quality of the product and the speed of the delivery service!', 5, 3),
+(8, 'Really satisfied with my purchase. really impressed with the quality of the product and the speed of the delivery service!really impressed with the quality of the product and the speed of the delivery service', 1, 3),
+(9, 'Exactly what I was looking for.really impressed with the quality of the product and the speed of the delivery service', 3, 3),
+(10, 'Great value for money.really impressed with the quality of the product and the speed of the delivery service', 4, 4),
+(11, 'Great quality and fast delivery!really impressed with the quality of the product and the speed of the delivery service', 1, 4),
+(12, 'Excellent customer service!really impressed with the quality of the product and the speed of the delivery service', 1, 4),
+(13, 'Love the design and fit.really impressed with the quality of the product and the speed of the delivery service', 2, 4),
+(14, 'Very comfortable to wear all day.really impressed with the quality of the product and the speed of the delivery service', 3, 5),
+(15, 'Amazing price for such good quality.really impressed with the quality of the product and the speed of the delivery service', 5, 5),
+(16, 'Looks even better in person!really impressed with the quality of the product and the speed of the delivery service', 4, 5),
+(17, 'Highly recommended!really impressed with the quality of the product and the speed of the delivery service', 5, 5),
+(18, 'Really satisfied with my purchase.really impressed with the quality of the product and the speed of the delivery service', 1, 6),
+(19, 'Exactly what I was looking for.really impressed with the quality of the product and the speed of the delivery service', 3, 6),
+(20, 'Great value for money.really impressed with the quality of the product and the speed of the delivery service', 4, 6),
+(21, 'Great quality and fast delivery!really impressed with the quality of the product and the speed of the delivery service', 1, 7),
+(22, 'Excellent customer service!really impressed with the quality of the product and the speed of the delivery service', 1, 7),
+(23, 'Love the design and fit.really impressed with the quality of the product and the speed of the delivery service', 2, 7),
+(24, 'Very comfortable to wear all day.really impressed with the quality of the product and the speed of the delivery service', 3, 8),
+(25, 'Amazing price for such good quality.really impressed with the quality of the product and the speed of the delivery service', 5, 8),
+(26, 'Looks even better in person!really impressed with the quality of the product and the speed of the delivery service', 4, 9),
+(27, 'Highly recommended!really impressed with the quality of the product and the speed of the delivery service', 5, 9),
+(28, 'Really satisfied with my purchase.really impressed with the quality of the product and the speed of the delivery service', 1, 10),
+(29, 'Exactly what I was looking for.really impressed with the quality of the product and the speed of the delivery service', 3, 10),
+(30, 'Great value for money.really impressed with the quality of the product and the speed of the delivery service', 4, 11),
+(31, 'Great quality and fast delivery!really impressed with the quality of the product and the speed of the delivery service', 1, 11),
+(32, 'Excellent customer service!really impressed with the quality of the product and the speed of the delivery service', 1, 12),
+(33, 'Love the design and fit.really impressed with the quality of the product and the speed of the delivery service', 2, 12),
+(34, 'Very comfortable to wear all day.really impressed with the quality of the product and the speed of the delivery service', 3, 13),
+(35, 'Amazing price for such good quality.really impressed with the quality of the product and the speed of the delivery service', 5, 13),
+(36, 'Looks even better in person!really impressed with the quality of the product and the speed of the delivery service', 4, 14),
+(37, 'Highly recommended!really impressed with the quality of the product and the speed of the delivery service', 5, 14),
+(38, 'Really satisfied with my purchase.really impressed with the quality of the product and the speed of the delivery service', 1, 15),
+(39, 'Exactly what I was looking for.really impressed with the quality of the product and the speed of the delivery service', 3, 15),
+(40, 'Great value for money.really impressed with the quality of the product and the speed of the delivery service', 4, 15),
+(41, 'Great quality and fast delivery!really impressed with the quality of the product and the speed of the delivery service', 1, 16),
+(42, 'Excellent customer service!really impressed with the quality of the product and the speed of the delivery service', 1, 17),
+(43, 'Love the design and fit.really impressed with the quality of the product and the speed of the delivery service', 2, 16),
+(44, 'Very comfortable to wear all day.really impressed with the quality of the product and the speed of the delivery service', 3, 17),
+(45, 'Amazing price for such good quality.really impressed with the quality of the product and the speed of the delivery service', 5, 18),
+(46, 'Looks even better in person!really impressed with the quality of the product and the speed of the delivery service', 4, 18),
+(47, 'Highly recommended!really impressed with the quality of the product and the speed of the delivery service', 5, 18),
+(48, 'Really satisfied with my purchase.really impressed with the quality of the product and the speed of the delivery service', 1, 19),
+(49, 'Exactly what I was looking for.really impressed with the quality of the product and the speed of the delivery service', 3, 19),
+(50, 'Great value for money.really impressed with the quality of the product and the speed of the delivery service', 4, 20);
+
+
 
 -- Vaciar la tabla `categories` si ya tiene datos y restablecer los valores de autoincremento
 TRUNCATE TABLE `categories`;
@@ -94,13 +136,11 @@ ALTER TABLE `categories` AUTO_INCREMENT = 1;
 
 -- Inserción de datos para la tabla `categories`
 INSERT INTO categories (id, title) VALUES
-(1, 'Mujer'),
-(2, 'Hombre'),
-(3, 'Pantalones'),
-(4, 'Camisetas'),
-(5, 'Zapatillas'),
-(6, 'Complementos'),
-(7, 'Camisas');
+(1, 'Women'),
+(2, 'Man'),
+(3, 'Trousers'),
+(4, 'T-shirts'),
+(5, 'Couple\'s clothing');
 
 
 -- Vaciar la tabla `products` si ya tiene datos y restablecer los valores de autoincremento
@@ -109,23 +149,27 @@ ALTER TABLE `products` AUTO_INCREMENT = 1;
 
 -- Inserción de datos para la tabla `products`
 INSERT INTO products(title, description, price, image, featured, categories_id) VALUES
-('Classic T-Shirt', 'A comfortable and stylish t-shirt for daily wear', 15.99, 'https://img.sharemyimage.com/2024/04/17/page-1.jpeg', 1, 1),
-('Slim Fit Jeans', 'High-quality denim jeans with a slim fit', 29.99, 'https://img.sharemyimage.com/2024/04/17/page-2.jpeg', 0, 1),
-('Running Shoes', 'Lightweight and durable shoes for running', 49.99, 'https://img.sharemyimage.com/2024/04/17/page-3.jpeg', 1, 2),
-('Leather Wallet', 'Genuine leather wallet with multiple compartments', 24.99, 'https://img.sharemyimage.com/2024/04/17/page-4.jpeg', 0, 3),
-('Sports Water Bottle', 'BPA-free water bottle for sports activities', 9.99, 'https://img.sharemyimage.com/2024/04/17/page-5.jpeg', 1, 4),
-('Smartphone Case', 'Protective case for smartphones', 12.99, 'https://img.sharemyimage.com/2024/04/17/page-6.jpeg', 0, 3),
-('Yoga Mat', 'Non-slip yoga mat for yoga and exercise', 19.99, 'https://img.sharemyimage.com/2024/04/17/page-7.jpeg', 1, 3),
-('Laptop Backpack', 'Spacious backpack for carrying laptops and accessories', 39.99, 'https://img.sharemyimage.com/2024/04/17/page-8.jpeg', 0, 3),
-('Wireless Earbuds', 'Bluetooth earbuds for wireless listening', 69.99, 'https://img.sharemyimage.com/2024/04/17/page-9.jpeg', 1, 3),
-('Sunglasses', 'UV protection sunglasses for sunny days', 17.99, 'https://img.sharemyimage.com/2024/04/17/page-10.jpeg', 0, 3),
-('Hooded Sweatshirt', 'Cozy hooded sweatshirt for chilly weather', 34.99, 'https://img.sharemyimage.com/2024/04/17/page-11.jpeg', 1, 1),
-('Denim Jacket', 'Classic denim jacket with a timeless design', 59.99, 'https://img.sharemyimage.com/2024/04/17/page-12.jpeg', 0, 1),
-('Fitness Tracker', 'Wearable fitness tracker to monitor activity', 79.99, 'https://img.sharemyimage.com/2024/04/17/page-13.jpeg', 1, 4),
-('Leather Messenger Bag', 'Stylish leather messenger bag for everyday use', 89.99, 'https://img.sharemyimage.com/2024/04/17/page-14.jpeg', 0, 3),
-('Protein Powder', 'High-quality protein powder for muscle recovery', 29.99, 'https://img.sharemyimage.com/2024/04/17/page-15.jpeg', 1, 4),
-('Portable Charger', 'Compact portable charger for on-the-go charging', 19.99, 'https://img.sharemyimage.com/2024/04/17/page-16.jpeg', 0, 3),
-('Yoga Blocks', 'Set of yoga blocks for support and stability', 14.99, 'https://img.sharemyimage.com/2024/04/17/page-17.jpeg', 1, 4),
-('Laptop Sleeve', 'Padded laptop sleeve for protection', 24.99, 'https://img.sharemyimage.com/2024/04/17/page-18.jpeg', 0, 3),
-('Wireless Mouse', 'Ergonomic wireless mouse for comfortable use', 12.99, 'https://img.sharemyimage.com/2024/04/17/page-19.jpeg', 1, 3),
-('Reflective Running Jacket', 'Jacket with reflective strips for night running', 49.99, 'https://img.sharemyimage.com/2024/04/17/page-20.jpeg', 0, 3);
+('Sky Spark', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal. Meticulously crafted details highlight the craftsmanship and care in its making. Additionally, its impeccable fit enhances the silhouette, providing an elegant and flattering appearance. Without a doubt, this garment will be an essential addition to any wardrobe, adding a touch of timeless style to any ensemble.', 15.99, 'https://img.sharemyimage.com/2024/04/22/1.Camiseta.webp', 1, 4),
+('Night Shade', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal. Meticulously crafted details highlight the craftsmanship and care in its making. Additionally, its impeccable fit enhances the silhouette, providing an elegant and flattering appearance. Without a doubt, this garment will be an essential addition to any wardrobe, adding a touch of timeless style to any ensemble.', 29.99, 'https://img.sharemyimage.com/2024/04/22/2.Camiseta.webp', 1, 4),
+('Dream Beam', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal. Meticulously crafted details highlight the craftsmanship and care in its making. Additionally, its impeccable fit enhances the silhouette, providing an elegant and flattering appearance. Without a doubt, this garment will be an essential addition to any wardrobe, adding a touch of timeless style to any ensemble.', 49.99, 'https://img.sharemyimage.com/2024/04/22/3.Camiseta.webp', 1, 5),
+('Fly Shade', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal. Meticulously crafted details highlight the craftsmanship and care in its making. Additionally, its impeccable fit enhances the silhouette, providing an elegant and flattering appearance. Without a doubt, this garment will be an essential addition to any wardrobe, adding a touch of timeless style to any ensemble.', 15.99, 'https://img.sharemyimage.com/2024/04/23/6.Camiseta.webp', 1, 4),
+('Beam Ocean', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal. Meticulously crafted details highlight the craftsmanship and care in its making. Additionally, its impeccable fit enhances the silhouette, providing an elegant and flattering appearance. Without a doubt, this garment will be an essential addition to any wardrobe, adding a touch of timeless style to any ensemble.', 29.99, 'https://img.sharemyimage.com/2024/04/23/7.Camiseta.webp', 1, 4),
+('Dream Star', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal. Meticulously crafted details highlight the craftsmanship and care in its making. Additionally, its impeccable fit enhances the silhouette, providing an elegant and flattering appearance. Without a doubt, this garment will be an essential addition to any wardrobe, adding a touch of timeless style to any ensemble.', 49.99, 'https://img.sharemyimage.com/2024/04/23/8.Camiseta.webp', 1, 4),
+('Sun Blaze', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal. Meticulously crafted details highlight the craftsmanship and care in its making. Additionally, its impeccable fit enhances the silhouette, providing an elegant and flattering appearance. Without a doubt, this garment will be an essential addition to any wardrobe, adding a touch of timeless style to any ensemble.', 15.99, 'https://img.sharemyimage.com/2024/04/22/3.Duo.webp', 1, 5),
+('Moon Light', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal. Meticulously crafted details highlight the craftsmanship and care in its making. Additionally, its impeccable fit enhances the silhouette, providing an elegant and flattering appearance. Without a doubt, this garment will be an essential addition to any wardrobe, adding a touch of timeless style to any ensemble.', 29.99, 'https://img.sharemyimage.com/2024/04/22/2.Duo.webp', 1, 5),
+('Star Shine', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal. Meticulously crafted details highlight the craftsmanship and care in its making. Additionally, its impeccable fit enhances the silhouette, providing an elegant and flattering appearance. Without a doubt, this garment will be an essential addition to any wardrobe, adding a touch of timeless style to any ensemble.', 49.99, 'https://img.sharemyimage.com/2024/04/22/1.Duo.webp', 1, 5),
+('Oceanic Odyssey', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal. Meticulously crafted details highlight the craftsmanship and care in its making. Additionally, its impeccable fit enhances the silhouette, providing an elegant and flattering appearance. Without a doubt, this garment will be an essential addition to any wardrobe, adding a touch of timeless style to any ensemble.', 49.99, 'https://img.sharemyimage.com/2024/04/22/4.Duo.webp', 1, 5),
+('Ocean Wave', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal.', 24.99, 'https://img.sharemyimage.com/2024/04/22/4.Camiseta.webp', 1, 1),
+('City Pulse', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal.', 12.99, 'https://img.sharemyimage.com/2024/04/22/1.Mujer.webp', 0, 1),
+('Shadow Sway', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal.', 39.99, 'https://img.sharemyimage.com/2024/04/22/3.Mujer.webp', 0, 1),
+('Velvet Touch', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal.', 69.99, 'https://img.sharemyimage.com/2024/04/22/4.Mujer.webp', 1, 1 ),
+('Rain Dance', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal.', 24.99, 'https://img.sharemyimage.com/2024/04/22/3.Pantalones.webp', 1, 3),
+('Fire Spark', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal.', 12.99, 'https://img.sharemyimage.com/2024/04/22/1.Pantalones.webp', 0, 3),
+('Silver Glow', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal.', 39.99, 'https://img.sharemyimage.com/2024/04/22/2.Pantalones.webp', 0, 3),
+('Mystic Charm', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal.', 39.99, 'https://img.sharemyimage.com/2024/04/22/5.Pantalones.webp', 1, 3),
+('Forest Whisper', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal.', 24.99, 'https://img.sharemyimage.com/2024/04/22/4.Hombre.md.webp', 1, 2),
+('Ice Frost', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal.', 12.99, 'https://img.sharemyimage.com/2024/04/22/1.Hombre.md.webp', 0, 2),
+('Crystal Clear', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal.', 39.99, 'https://img.sharemyimage.com/2024/04/22/2.Hombre.md.webp', 0, 2),
+('Moonlit Marvel', 'This garment is the perfect combination of style and comfort. Crafted with high-quality materials, this piece ensures a soft feel against the skin and exceptional durability. Its versatile design makes it ideal for various occasions, whether casual or formal.', 39.99, 'https://img.sharemyimage.com/2024/04/22/3.Hombre.md.webp', 1, 2);
+
+

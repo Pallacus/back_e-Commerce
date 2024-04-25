@@ -12,7 +12,7 @@ GET {{host}}/api/products/featured
 
 
 ###
-GET {{host}}/api/products/1
+GET {{host}}/api/products/8
 
 ###
 GET {{host}}/api/products/paginated?page=1&limit=16
@@ -23,8 +23,8 @@ GET {{host}}/api/products/category/4
 
 ###
 POST {{host}}/api/products/new
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzODE3NDI3fQ.eFp90AxslQ6G-jIfL2sprH58QZLIIMSgRprCUDhBMKY
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNTExOTUxfQ.BEF2U2p-tL6-BxaxiiI5R0uDgMByYswoNgvwRuCKwgk
 
 {
     "title": "Gorra amarilla", 
@@ -35,24 +35,23 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWlu
     "categories_id": "4"
 }
 
-
 ###
-PUT {{host}}/api/products/update/4
+PUT {{host}}/api/products/update/5
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNTExOTUxfQ.BEF2U2p-tL6-BxaxiiI5R0uDgMByYswoNgvwRuCKwgk
 
 {
-    "title": "Gorra gris", 
-    "description": "Gorra gris de algodón", 
-    "price": "37.90", 
-    "image": "http://ecommerce.com/5932659.jpg", 
+    "title": "Camiseta Oversize", 
+    "description": "Camiseta OverSize", 
+    "price": "14.90", 
+    "image": "https://img.sharemyimage.com/2024/04/22/1.Camiseta.webp",
     "featured": "0", 
     "categories_id": "4"
 }
 
 
 ###
-DELETE {{host}}/api/products/4
+DELETE {{host}}/api/products/21
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNTExOTUxfQ.BEF2U2p-tL6-BxaxiiI5R0uDgMByYswoNgvwRuCKwgk
 
 

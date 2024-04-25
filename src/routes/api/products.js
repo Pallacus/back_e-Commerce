@@ -1,6 +1,11 @@
 const ProductModel = require("../../models/products.model");
+const UsersModel = require("../../models/users.model");
 const { checkProduct } = require("../../helpers/product.middlewares");
-const {checkToken, checkAdminRole} = require("../../helpers/users.middlewares");
+const {
+  checkToken,
+  checkAdminRole,
+} = require("../../helpers/users.middlewares");
+const { sendMail } = require("../../helpers/utils");
 
 const router = require("express").Router();
 
@@ -57,7 +62,7 @@ router.get("/category/:categoryId", async (req, res) => {
 });
 
 // POST /products/new
-router.post("/new",checkToken, checkAdminRole, async (req, res) => {
+router.post("/new", checkToken, checkAdminRole, async (req, res) => {
   try {
     const [result] = await ProductModel.insertNewProduct(req.body);
     const [products] = await ProductModel.getProductById(result.insertId);
@@ -68,27 +73,67 @@ router.post("/new",checkToken, checkAdminRole, async (req, res) => {
 });
 
 //PUT /products/update/PRODUCTID
-router.put("/update/:productId",checkProduct,checkToken,checkAdminRole, async (req, res) => {
-    const {params: { productId }, body} = req;
+router.put(
+  "/update/:productId",
+  checkProduct,
+  checkToken,
+  checkAdminRole,
+  async (req, res) => {
+    const {
+      params: { productId },
+      body,
+    } = req;
     try {
+      const [[beforeProduct]] = await ProductModel.getProductById(productId);
       await ProductModel.updateProduct(productId, body);
-      const [products] = await ProductModel.getProductById(productId);
-      res.json(products[0]);
+      const [[product]] = await ProductModel.getProductById(productId);
+      res.json(product);
+      if (beforeProduct.price > product.price) {
+        const [users] = await UsersModel.selectUsersByFavoriteProduct(
+          product.id
+        );
+        let usersEmail = "";
+        for (const user of users) {
+          usersEmail += `${user.email},\n`;
+          sendMail(
+            user.email,
+            `Your favorite product ${product.title} has a price reduction`,
+            `<h1 style="margin-bottom:40px">Make the most out of it, ${user.name} ${user.last_name}!</h1>
+            <h4>${product.title} has lowered the price!</h4>
+            <p style="margin-bottom:40px"><strong>Now just ${product.price} €!</strong></p>
+             `,
+            product.image,
+            `http://localhost:4200/products/${product.id}`
+          );
+        }
+        sendMail(
+          "idfashioninfo71@gmail.com",
+          `Bajada de precio de ${product.title}`,
+          `Se ha informado a los siguientes usuarios:\n${usersEmail}`
+        );
+      }
     } catch (error) {
+      console.log(error);
       res.json({ fatal: error.message });
     }
   }
 );
 
 //DELETE /products/PRODUCTID
-router.delete("/:productId", checkProduct,checkToken, checkAdminRole, async (req, res) => {
-  const { productId } = req.params;
-  try {
-    await ProductModel.deleteProduct(productId);
-    res.json(req.product);
-  } catch (error) {
-    res.json({ fatal: error.message });
+router.delete(
+  "/:productId",
+  checkProduct,
+  checkToken,
+  checkAdminRole,
+  async (req, res) => {
+    const { productId } = req.params;
+    try {
+      await ProductModel.deleteProduct(productId);
+      res.json(req.product);
+    } catch (error) {
+      res.json({ fatal: error.message });
+    }
   }
-});
+);
 
 module.exports = router;

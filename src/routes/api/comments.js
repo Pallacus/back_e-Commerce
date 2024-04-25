@@ -1,3 +1,4 @@
+//const { getAllComments, insertNewComment, getCommentById, updateComment, deleteComment, getCommentsByProductId } = require('../../models/comments.model');
 const CommentsModel = require("../../models/comments.model");
 const { checkComment } = require("../../helpers/comment.middlewares");
 const {
@@ -18,11 +19,22 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:productId", async (req, res) => {
+router.get("/:comentId", async (req, res) => {
   try {
-    const [result] = await CommentsModel.getCommentsByProductId(
-      req.params.productId
+    const [result] = await CommentsModel.getCommentById(
+      req.params.comentId
     );
+    res.json(result);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+});
+
+// GET /comments/product/PRODUCTID
+router.get('/product/:productId', async (req, res) => {
+  const { params: { productId } } = req;
+  try {
+    const [result] = await CommentsModel.getCommentsByProductId(productId);
     res.json(result);
   } catch (error) {
     res.json({ fatal: error.message });
