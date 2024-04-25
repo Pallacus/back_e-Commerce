@@ -88,7 +88,7 @@ Instala las dependencias
 Accede al directorio del proyecto
 
 ```bash
-  cd nack_e-Commerce
+  cd back_e-Commerce
 ```
 
 Instala las dependencias
