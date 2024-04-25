@@ -8,7 +8,7 @@ El cliente debe poder consultar cualquier aspecto relacionado con los productos 
 Para poder comprar, editar su carrito de la compra, marcar como favorito o crear algún tipo de reseña debe registrarse y autenticarse.
 El proceso de compra puede simularse o quedarse en el paso previo al cobro, no hace falta implementar ningún tipo de pasarela de pago o similar.
 
-Info aplicación: [IDFashion](IDProject.pdf)
+Info aplicación: [IDFashion](IDProject .pdf)
 
 ## 🎯 Requisitos mínimos
 
@@ -132,7 +132,7 @@ Inicia el servidor en el Back:
   npm run dev
 
 ```
-![image]();
+![image](IDEquipo.png);
 
 ## ✍🏼 Autores ©️
 
