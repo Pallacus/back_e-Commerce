@@ -11,7 +11,7 @@ const createToken = (user) => {
   return jwt.sign(obj, process.env.SECRET_KEY);
 };
 
-const sendMail = (to, subject, text) => {
+const sendMail = (to, subject, text, image = "", url = '') => {
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -27,14 +27,24 @@ const sendMail = (to, subject, text) => {
     from: "idfashioninfo71@gmail.com",
     to,
     subject,
-    text,
+    html: text,
   };
+  if (image) {
+    mailOptions.attachments = [
+      {
+        filename: "image.png",
+        path: image,
+        cid: "unique@nodemailer.com", //same cid value as in the html img src
+      },
+    ];
+    mailOptions.html += `<a href="${url}"><img src="cid:unique@nodemailer.com"/></a>`;
+  }
   // Enviamos el email
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
     } else {
-      console.log(info);
+      console.log("Correo enviado");
     }
   });
 };

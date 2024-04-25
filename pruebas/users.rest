@@ -14,20 +14,9 @@ GET {{host}}/api/users/7
 // Devuelve el objeto usuario que coincide con el email
 GET {{host}}/api/users/email/ashley@example.com
 
-
-
-
-
-
-
 ###
 // GET /users/favorite/:product_id
 GET {{host}}/api/users/favorite/5
-
-
-
-
-
 
 ###
 // Devuelve el usuario que ha sido registrado
@@ -35,10 +24,10 @@ POST {{host}}/api/users/new
 Content-Type: application/json
 
 {
-  "name": "Jose",
-  "last_name": "Gomez",
+  "name": "Mario",
+  "last_name": "Girón",
   "address": "calle fulanita",
-  "email": "otao@gmail.com",
+  "email": "mariogironm@gmail.com",
   "card_number": 545454542,
   "password": "123456",
   "role": "user"
@@ -51,7 +40,7 @@ POST {{host}}/api/users/login
 Content-Type: application/json
 
 {
-  "email": "ashley@example.com",
+  "email": "alba.picv@gmail.com",
   "password": "123456"
 }
 
@@ -68,16 +57,16 @@ Content-Type: application/json
 
 
 ###
-PUT {{host}}/api/users/update/3
+PUT {{host}}/api/users/update/21
 Content-Type: application/json
 
 {
-  "name": "Jose",
-  "last_name": "Gomdddddez",
+  "name": "Sonia",
+  "last_name": "Flores",
   "address": "calle fulanita",
-  "email": "joe@gmail.com",
+  "email": "sonia.fmayoral@gmail.com",
   "card_number": 545454542,
-  "password": "hola1234",
+  "password": "123456",
   "role": "user"
 }
 

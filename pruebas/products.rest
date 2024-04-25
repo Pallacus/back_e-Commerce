@@ -41,10 +41,10 @@ Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNTExOTUxfQ.BEF2U2p-tL6-BxaxiiI5R0uDgMByYswoNgvwRuCKwgk
 
 {
-    "title": "Gorra gris", 
-    "description": "Gorra gris de algodón", 
-    "price": "33.90", 
-    "image": "http://ecommerce.com/5932659.jpg", 
+    "title": "Camiseta Oversize", 
+    "description": "Camiseta OverSize", 
+    "price": "14.90", 
+    "image": "https://img.sharemyimage.com/2024/04/22/1.Camiseta.webp",
     "featured": "0", 
     "categories_id": "4"
 }

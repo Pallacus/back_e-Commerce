@@ -23,8 +23,8 @@ Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNzAyMTE5fQ.bOlIPPpiGsfXzsHxYKCgRKE8kq7VIyw1-6xk1-0UHfw
 
 {
-    "users_id": "8", 
-    "products_id": "9"
+    "users_id": "1", 
+    "products_id": "5"
 }
 
 ###
@@ -32,11 +32,11 @@ PUT {{host}}/api/favorites/update/7
 Content-Type: application/json
 
 {
-    "users_id": "5", 
-    "products_id": "4"
+    "users_id": "21", 
+    "products_id": "5"
 }
 
 ###
-DELETE {{host}}/api/favorites/13
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEzNzAyMTE5fQ.bOlIPPpiGsfXzsHxYKCgRKE8kq7VIyw1-6xk1-0UHfw
+DELETE {{host}}/api/favorites/5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzE0MDI0MDY2fQ.0RiWivTR3V_pYrEWD8vbrJAFunI1cOkcStjMRBn2EXA
 
