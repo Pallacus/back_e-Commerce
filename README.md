@@ -132,6 +132,7 @@ Inicia el servidor en el Back:
   npm run dev
 
 ```
+
 ![image](IDEquipo.png);
 
 ## ✍🏼 Autores ©️
