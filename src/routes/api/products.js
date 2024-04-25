@@ -103,7 +103,7 @@ router.put(
             <p style="margin-bottom:40px"><strong>Now just ${product.price} €!</strong></p>
              `,
             product.image,
-            `https://idfashionproject.web.app/api/products/${product.id}`
+            `https://idfashionproject.web.app/products/${product.id}`
           );
         }
         sendMail(
